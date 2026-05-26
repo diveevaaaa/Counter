@@ -1,0 +1,49 @@
+{
+  "" : {
+    "diagnostics" : "/Users/nastadiveeva/sprint 3/DerivedData/Build/Intermediates.noindex/Counter.build/Debug-iphonesimulator/Counter.build/Objects-normal/arm64/Counter-primary.dia",
+    "emit-module-dependencies" : "/Users/nastadiveeva/sprint 3/DerivedData/Build/Intermediates.noindex/Counter.build/Debug-iphonesimulator/Counter.build/Objects-normal/arm64/Counter-primary-emit-module.d",
+    "emit-module-diagnostics" : "/Users/nastadiveeva/sprint 3/DerivedData/Build/Intermediates.noindex/Counter.build/Debug-iphonesimulator/Counter.build/Objects-normal/arm64/Counter-primary-emit-module.dia",
+    "pch" : "/Users/nastadiveeva/sprint 3/DerivedData/Build/Intermediates.noindex/Counter.build/Debug-iphonesimulator/Counter.build/Objects-normal/arm64/Counter-primary-Bridging-header.pch",
+    "swift-dependencies" : "/Users/nastadiveeva/sprint 3/DerivedData/Build/Intermediates.noindex/Counter.build/Debug-iphonesimulator/Counter.build/Objects-normal/arm64/Counter-primary.swiftdeps"
+  },
+  "/Users/nastadiveeva/sprint 3/Counter/CounterApp.swift" : {
+    "const-values" : "/Users/nastadiveeva/sprint 3/DerivedData/Build/Intermediates.noindex/Counter.build/Debug-iphonesimulator/Counter.build/Objects-normal/arm64/CounterApp.swiftconstvalues",
+    "dependencies" : "/Users/nastadiveeva/sprint 3/DerivedData/Build/Intermediates.noindex/Counter.build/Debug-iphonesimulator/Counter.build/Objects-normal/arm64/CounterApp.d",
+    "diagnostics" : "/Users/nastadiveeva/sprint 3/DerivedData/Build/Intermediates.noindex/Counter.build/Debug-iphonesimulator/Counter.build/Objects-normal/arm64/CounterApp.dia",
+    "index-unit-output-path" : "/Counter.build/Debug-iphonesimulator/Counter.build/Objects-normal/arm64/CounterApp.o",
+    "llvm-bc" : "/Users/nastadiveeva/sprint 3/DerivedData/Build/Intermediates.noindex/Counter.build/Debug-iphonesimulator/Counter.build/Objects-normal/arm64/CounterApp.bc",
+    "object" : "/Users/nastadiveeva/sprint 3/DerivedData/Build/Intermediates.noindex/Counter.build/Debug-iphonesimulator/Counter.build/Objects-normal/arm64/CounterApp.o",
+    "swift-dependencies" : "/Users/nastadiveeva/sprint 3/DerivedData/Build/Intermediates.noindex/Counter.build/Debug-iphonesimulator/Counter.build/Objects-normal/arm64/CounterApp.swiftdeps",
+    "swiftmodule" : "/Users/nastadiveeva/sprint 3/DerivedData/Build/Intermediates.noindex/Counter.build/Debug-iphonesimulator/Counter.build/Objects-normal/arm64/CounterApp~partial.swiftmodule"
+  },
+  "/Users/nastadiveeva/sprint 3/Counter/SceneDelegate.swift" : {
+    "const-values" : "/Users/nastadiveeva/sprint 3/DerivedData/Build/Intermediates.noindex/Counter.build/Debug-iphonesimulator/Counter.build/Objects-normal/arm64/SceneDelegate.swiftconstvalues",
+    "dependencies" : "/Users/nastadiveeva/sprint 3/DerivedData/Build/Intermediates.noindex/Counter.build/Debug-iphonesimulator/Counter.build/Objects-normal/arm64/SceneDelegate.d",
+    "diagnostics" : "/Users/nastadiveeva/sprint 3/DerivedData/Build/Intermediates.noindex/Counter.build/Debug-iphonesimulator/Counter.build/Objects-normal/arm64/SceneDelegate.dia",
+    "index-unit-output-path" : "/Counter.build/Debug-iphonesimulator/Counter.build/Objects-normal/arm64/SceneDelegate.o",
+    "llvm-bc" : "/Users/nastadiveeva/sprint 3/DerivedData/Build/Intermediates.noindex/Counter.build/Debug-iphonesimulator/Counter.build/Objects-normal/arm64/SceneDelegate.bc",
+    "object" : "/Users/nastadiveeva/sprint 3/DerivedData/Build/Intermediates.noindex/Counter.build/Debug-iphonesimulator/Counter.build/Objects-normal/arm64/SceneDelegate.o",
+    "swift-dependencies" : "/Users/nastadiveeva/sprint 3/DerivedData/Build/Intermediates.noindex/Counter.build/Debug-iphonesimulator/Counter.build/Objects-normal/arm64/SceneDelegate.swiftdeps",
+    "swiftmodule" : "/Users/nastadiveeva/sprint 3/DerivedData/Build/Intermediates.noindex/Counter.build/Debug-iphonesimulator/Counter.build/Objects-normal/arm64/SceneDelegate~partial.swiftmodule"
+  },
+  "/Users/nastadiveeva/sprint 3/Counter/ViewController.swift" : {
+    "const-values" : "/Users/nastadiveeva/sprint 3/DerivedData/Build/Intermediates.noindex/Counter.build/Debug-iphonesimulator/Counter.build/Objects-normal/arm64/ViewController.swiftconstvalues",
+    "dependencies" : "/Users/nastadiveeva/sprint 3/DerivedData/Build/Intermediates.noindex/Counter.build/Debug-iphonesimulator/Counter.build/Objects-normal/arm64/ViewController.d",
+    "diagnostics" : "/Users/nastadiveeva/sprint 3/DerivedData/Build/Intermediates.noindex/Counter.build/Debug-iphonesimulator/Counter.build/Objects-normal/arm64/ViewController.dia",
+    "index-unit-output-path" : "/Counter.build/Debug-iphonesimulator/Counter.build/Objects-normal/arm64/ViewController.o",
+    "llvm-bc" : "/Users/nastadiveeva/sprint 3/DerivedData/Build/Intermediates.noindex/Counter.build/Debug-iphonesimulator/Counter.build/Objects-normal/arm64/ViewController.bc",
+    "object" : "/Users/nastadiveeva/sprint 3/DerivedData/Build/Intermediates.noindex/Counter.build/Debug-iphonesimulator/Counter.build/Objects-normal/arm64/ViewController.o",
+    "swift-dependencies" : "/Users/nastadiveeva/sprint 3/DerivedData/Build/Intermediates.noindex/Counter.build/Debug-iphonesimulator/Counter.build/Objects-normal/arm64/ViewController.swiftdeps",
+    "swiftmodule" : "/Users/nastadiveeva/sprint 3/DerivedData/Build/Intermediates.noindex/Counter.build/Debug-iphonesimulator/Counter.build/Objects-normal/arm64/ViewController~partial.swiftmodule"
+  },
+  "/Users/nastadiveeva/sprint 3/DerivedData/Build/Intermediates.noindex/Counter.build/Debug-iphonesimulator/Counter.build/DerivedSources/GeneratedAssetSymbols.swift" : {
+    "const-values" : "/Users/nastadiveeva/sprint 3/DerivedData/Build/Intermediates.noindex/Counter.build/Debug-iphonesimulator/Counter.build/Objects-normal/arm64/GeneratedAssetSymbols.swiftconstvalues",
+    "dependencies" : "/Users/nastadiveeva/sprint 3/DerivedData/Build/Intermediates.noindex/Counter.build/Debug-iphonesimulator/Counter.build/Objects-normal/arm64/GeneratedAssetSymbols.d",
+    "diagnostics" : "/Users/nastadiveeva/sprint 3/DerivedData/Build/Intermediates.noindex/Counter.build/Debug-iphonesimulator/Counter.build/Objects-normal/arm64/GeneratedAssetSymbols.dia",
+    "index-unit-output-path" : "/Counter.build/Debug-iphonesimulator/Counter.build/Objects-normal/arm64/GeneratedAssetSymbols.o",
+    "llvm-bc" : "/Users/nastadiveeva/sprint 3/DerivedData/Build/Intermediates.noindex/Counter.build/Debug-iphonesimulator/Counter.build/Objects-normal/arm64/GeneratedAssetSymbols.bc",
+    "object" : "/Users/nastadiveeva/sprint 3/DerivedData/Build/Intermediates.noindex/Counter.build/Debug-iphonesimulator/Counter.build/Objects-normal/arm64/GeneratedAssetSymbols.o",
+    "swift-dependencies" : "/Users/nastadiveeva/sprint 3/DerivedData/Build/Intermediates.noindex/Counter.build/Debug-iphonesimulator/Counter.build/Objects-normal/arm64/GeneratedAssetSymbols.swiftdeps",
+    "swiftmodule" : "/Users/nastadiveeva/sprint 3/DerivedData/Build/Intermediates.noindex/Counter.build/Debug-iphonesimulator/Counter.build/Objects-normal/arm64/GeneratedAssetSymbols~partial.swiftmodule"
+  }
+}
