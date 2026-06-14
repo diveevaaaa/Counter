@@ -10,6 +10,14 @@
 		A10000000000000000000001 /* CounterApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000001 /* CounterApp.swift */; };
 		A10000000000000000000002 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000002 /* SceneDelegate.swift */; };
 		A10000000000000000000003 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000003 /* ViewController.swift */; };
+		A10000000000000000000007 /* QuizQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000008 /* QuizQuestion.swift */; };
+		A10000000000000000000008 /* QuizStepViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000009 /* QuizStepViewModel.swift */; };
+		A10000000000000000000009 /* QuizResultsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000000000000000000000A /* QuizResultsViewModel.swift */; };
+		A1000000000000000000000A /* GameResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000000000000000000000B /* GameResult.swift */; };
+		A1000000000000000000000B /* StatisticService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000000000000000000000C /* StatisticService.swift */; };
+		A1000000000000000000000C /* QuestionFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000000000000000000000D /* QuestionFactory.swift */; };
+		A1000000000000000000000D /* AlertModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000000000000000000000E /* AlertModel.swift */; };
+		A1000000000000000000000E /* ResultAlertPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000000000000000000000F /* ResultAlertPresenter.swift */; };
 		A10000000000000000000004 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000004 /* Main.storyboard */; };
 		A10000000000000000000005 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000005 /* Assets.xcassets */; };
 		A10000000000000000000006 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000006 /* LaunchScreen.storyboard */; };
@@ -19,6 +27,14 @@
 		A20000000000000000000001 /* CounterApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterApp.swift; sourceTree = "<group>"; };
 		A20000000000000000000002 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		A20000000000000000000003 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A20000000000000000000008 /* QuizQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizQuestion.swift; sourceTree = "<group>"; };
+		A20000000000000000000009 /* QuizStepViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizStepViewModel.swift; sourceTree = "<group>"; };
+		A2000000000000000000000A /* QuizResultsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizResultsViewModel.swift; sourceTree = "<group>"; };
+		A2000000000000000000000B /* GameResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameResult.swift; sourceTree = "<group>"; };
+		A2000000000000000000000C /* StatisticService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticService.swift; sourceTree = "<group>"; };
+		A2000000000000000000000D /* QuestionFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionFactory.swift; sourceTree = "<group>"; };
+		A2000000000000000000000E /* AlertModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertModel.swift; sourceTree = "<group>"; };
+		A2000000000000000000000F /* ResultAlertPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultAlertPresenter.swift; sourceTree = "<group>"; };
 		A20000000000000000000004 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A20000000000000000000005 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A20000000000000000000006 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -51,6 +67,14 @@
 				A20000000000000000000001 /* CounterApp.swift */,
 				A20000000000000000000002 /* SceneDelegate.swift */,
 				A20000000000000000000003 /* ViewController.swift */,
+				A20000000000000000000008 /* QuizQuestion.swift */,
+				A20000000000000000000009 /* QuizStepViewModel.swift */,
+				A2000000000000000000000A /* QuizResultsViewModel.swift */,
+				A2000000000000000000000B /* GameResult.swift */,
+				A2000000000000000000000C /* StatisticService.swift */,
+				A2000000000000000000000D /* QuestionFactory.swift */,
+				A2000000000000000000000E /* AlertModel.swift */,
+				A2000000000000000000000F /* ResultAlertPresenter.swift */,
 				A20000000000000000000004 /* Main.storyboard */,
 				A20000000000000000000006 /* LaunchScreen.storyboard */,
 				A20000000000000000000005 /* Assets.xcassets */,
@@ -142,6 +166,14 @@
 				A10000000000000000000001 /* CounterApp.swift in Sources */,
 				A10000000000000000000002 /* SceneDelegate.swift in Sources */,
 				A10000000000000000000003 /* ViewController.swift in Sources */,
+				A10000000000000000000007 /* QuizQuestion.swift in Sources */,
+				A10000000000000000000008 /* QuizStepViewModel.swift in Sources */,
+				A10000000000000000000009 /* QuizResultsViewModel.swift in Sources */,
+				A1000000000000000000000A /* GameResult.swift in Sources */,
+				A1000000000000000000000B /* StatisticService.swift in Sources */,
+				A1000000000000000000000C /* QuestionFactory.swift in Sources */,
+				A1000000000000000000000D /* AlertModel.swift in Sources */,
+				A1000000000000000000000E /* ResultAlertPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
