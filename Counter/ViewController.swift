@@ -74,21 +74,21 @@ final class MovieQuizViewController: UIViewController {
         view.addSubview(buttonsStackView)
 
         NSLayoutConstraint.activate([
-            imageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 75),
+            imageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 40),
             imageView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
             imageView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
-            imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor, multiplier: 1.32),
+            imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor, multiplier: 1.15),
 
-            questionLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 33),
+            questionLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 24),
             questionLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
             questionLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
 
-            counterLabel.topAnchor.constraint(equalTo: questionLabel.bottomAnchor, constant: 20),
+            counterLabel.topAnchor.constraint(equalTo: questionLabel.bottomAnchor, constant: 16),
             counterLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
 
             buttonsStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
             buttonsStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
-            buttonsStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -46),
+            buttonsStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -34),
             buttonsStackView.heightAnchor.constraint(equalToConstant: 60),
             buttonsStackView.topAnchor.constraint(greaterThanOrEqualTo: counterLabel.bottomAnchor, constant: 24)
         ])
