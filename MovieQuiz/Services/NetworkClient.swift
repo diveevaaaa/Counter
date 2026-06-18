@@ -20,7 +20,8 @@ final class NetworkClient: NetworkRouting {
     }
 
     func fetch(url: URL, handler: @escaping (Result<Data, Error>) -> Void) {
-        let request = URLRequest(url: url)
+        var request = URLRequest(url: url)
+        request.setValue("MovieQuiz/1.0 (iOS)", forHTTPHeaderField: "User-Agent")
 
         session.dataTask(with: request) { data, response, error in
             if let error {
