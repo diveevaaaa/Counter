@@ -20,6 +20,9 @@
 		B10000000000000000000002 /* QuestionFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20000000000000000000002 /* QuestionFactory.swift */; };
 		B10000000000000000000003 /* StatisticService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20000000000000000000003 /* StatisticService.swift */; };
 		B10000000000000000000004 /* ResultAlertPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20000000000000000000004 /* ResultAlertPresenter.swift */; };
+		B10000000000000000000005 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20000000000000000000005 /* Movie.swift */; };
+		B10000000000000000000006 /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20000000000000000000006 /* NetworkClient.swift */; };
+		B10000000000000000000007 /* MoviesLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20000000000000000000007 /* MoviesLoader.swift */; };
 		FC5435AE2B304D1C00187934 /* YS Display-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC5435AC2B304D1C00187934 /* YS Display-Bold.ttf */; };
 		FC5435AF2B304D1C00187934 /* YS Display-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC5435AD2B304D1C00187934 /* YS Display-Medium.ttf */; };
 /* End PBXBuildFile section */
@@ -40,6 +43,9 @@
 		B20000000000000000000002 /* QuestionFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionFactory.swift; sourceTree = "<group>"; };
 		B20000000000000000000003 /* StatisticService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticService.swift; sourceTree = "<group>"; };
 		B20000000000000000000004 /* ResultAlertPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultAlertPresenter.swift; sourceTree = "<group>"; };
+		B20000000000000000000005 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		B20000000000000000000006 /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
+		B20000000000000000000007 /* MoviesLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesLoader.swift; sourceTree = "<group>"; };
 		FC5435AC2B304D1C00187934 /* YS Display-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "YS Display-Bold.ttf"; sourceTree = "<group>"; };
 		FC5435AD2B304D1C00187934 /* YS Display-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "YS Display-Medium.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -59,6 +65,7 @@
 			isa = PBXGroup;
 			children = (
 				B20000000000000000000001 /* QuizModels.swift */,
+				B20000000000000000000005 /* Movie.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -68,6 +75,8 @@
 			children = (
 				B20000000000000000000002 /* QuestionFactory.swift */,
 				B20000000000000000000003 /* StatisticService.swift */,
+				B20000000000000000000006 /* NetworkClient.swift */,
+				B20000000000000000000007 /* MoviesLoader.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -217,13 +226,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD5EE5DE284D7887003966EF /* UIColor+Extensions.swift in Sources */,
+				B10000000000000000000005 /* Movie.swift in Sources */,
 				AD7AFA552836189F00399704 /* Array+Extensions.swift in Sources */,
 				B10000000000000000000002 /* QuestionFactory.swift in Sources */,
 				AD1ABAB62831907B00B3E448 /* MovieQuizViewController.swift in Sources */,
 				AD77F5742857F8810062FB14 /* Date+Extensions.swift in Sources */,
 				B10000000000000000000001 /* QuizModels.swift in Sources */,
 				B10000000000000000000004 /* ResultAlertPresenter.swift in Sources */,
+				B10000000000000000000006 /* NetworkClient.swift in Sources */,
 				B10000000000000000000003 /* StatisticService.swift in Sources */,
+				B10000000000000000000007 /* MoviesLoader.swift in Sources */,
 				AD1ABAB22831907B00B3E448 /* AppDelegate.swift in Sources */,
 				AD1ABAB42831907B00B3E448 /* SceneDelegate.swift in Sources */,
 			);

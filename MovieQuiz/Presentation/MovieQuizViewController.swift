@@ -14,15 +14,18 @@ final class MovieQuizViewController: UIViewController {
     private let questionsAmount: Int = 10
     private var correctAnswers = 0
     private var currentQuestion: QuizQuestion?
-    private let questionFactory: QuestionFactoryProtocol = QuestionFactory()
+    private var questionFactory: QuestionFactoryProtocol = QuestionFactory()
     private var statisticService: StatisticServiceProtocol = StatisticService()
+    private let loadingIndicator = UIActivityIndicatorView(style: .large)
     private lazy var resultAlertPresenter = ResultAlertPresenter(viewController: self)
 
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupInterface()
-        showNextQuestion()
+        questionFactory.delegate = self
+        showLoadingIndicator()
+        questionFactory.loadData()
     }
 
     // MARK: - IBActions
@@ -53,6 +56,7 @@ final class MovieQuizViewController: UIViewController {
 
         configureButton(noButton, title: "Нет")
         configureButton(yesButton, title: "Да")
+        configureLoadingIndicator()
     }
 
     private func configureButton(_ button: UIButton, title: String) {
@@ -64,16 +68,41 @@ final class MovieQuizViewController: UIViewController {
         button.layer.masksToBounds = true
     }
 
+    private func configureLoadingIndicator() {
+        loadingIndicator.color = UIColor(named: "YPWhite")
+        loadingIndicator.hidesWhenStopped = true
+        loadingIndicator.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(loadingIndicator)
+
+        NSLayoutConstraint.activate([
+            loadingIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            loadingIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
+    }
+
+    private func showLoadingIndicator() {
+        setAnswerButtonsEnabled(false)
+        loadingIndicator.startAnimating()
+    }
+
+    private func hideLoadingIndicator() {
+        loadingIndicator.stopAnimating()
+        setAnswerButtonsEnabled(true)
+    }
+
+    private func setAnswerButtonsEnabled(_ isEnabled: Bool) {
+        yesButton.isEnabled = isEnabled
+        noButton.isEnabled = isEnabled
+    }
+
     private func showNextQuestion() {
-        guard let question = questionFactory.requestNextQuestion() else { return }
-        currentQuestion = question
-        let viewModel = convert(model: question)
-        show(quiz: viewModel)
+        showLoadingIndicator()
+        questionFactory.requestNextQuestion()
     }
 
     private func convert(model: QuizQuestion) -> QuizStepViewModel {
         QuizStepViewModel(
-            image: UIImage(named: model.image) ?? UIImage(),
+            image: model.image,
             question: model.text,
             questionNumber: "\(currentQuestionIndex + 1)/\(questionsAmount)"
         )
@@ -96,8 +125,7 @@ final class MovieQuizViewController: UIViewController {
             correctAnswers += 1
         }
 
-        yesButton.isEnabled = false
-        noButton.isEnabled = false
+        setAnswerButtonsEnabled(false)
 
         imageView.layer.borderWidth = 8
         imageView.layer.borderColor = isCorrect
@@ -106,8 +134,6 @@ final class MovieQuizViewController: UIViewController {
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { [weak self] in
             guard let self else { return }
-            self.yesButton.isEnabled = true
-            self.noButton.isEnabled = true
             self.showNextQuestionOrResults()
         }
     }
@@ -159,5 +185,61 @@ final class MovieQuizViewController: UIViewController {
         currentQuestion = nil
         questionFactory.reset()
         showNextQuestion()
+    }
+
+    private func reloadData() {
+        currentQuestionIndex = 0
+        correctAnswers = 0
+        currentQuestion = nil
+        imageView.layer.borderWidth = 0
+        questionFactory.reset()
+        showLoadingIndicator()
+        questionFactory.loadData()
+    }
+
+    private func showNetworkError() {
+        hideLoadingIndicator()
+        setAnswerButtonsEnabled(false)
+
+        let alertModel = AlertModel(
+            title: "Ошибка",
+            message: "Не удалось загрузить данные. Попробуйте ещё раз.",
+            buttonText: "Попробовать ещё раз"
+        ) { [weak self] in
+            self?.reloadData()
+        }
+        resultAlertPresenter.showAlert(model: alertModel)
+    }
+}
+
+// MARK: - QuestionFactoryDelegate
+extension MovieQuizViewController: QuestionFactoryDelegate {
+    func didLoadDataFromServer() {
+        DispatchQueue.main.async { [weak self] in
+            self?.showNextQuestion()
+        }
+    }
+
+    func didFailToLoadData(with error: Error) {
+        DispatchQueue.main.async { [weak self] in
+            self?.showNetworkError()
+        }
+    }
+
+    func didReceiveNextQuestion(question: QuizQuestion?) {
+        DispatchQueue.main.async { [weak self] in
+            guard let self else { return }
+
+            self.hideLoadingIndicator()
+
+            guard let question else {
+                self.showNetworkError()
+                return
+            }
+
+            self.currentQuestion = question
+            let viewModel = self.convert(model: question)
+            self.show(quiz: viewModel)
+        }
     }
 }
