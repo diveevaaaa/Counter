@@ -80,6 +80,11 @@ final class MoviesLoader: MoviesLoading {
             let uniqueMovies = self.uniqueMovies(from: movies)
                 .filter { $0.rating != nil && $0.imageURL != nil }
 
+            guard !uniqueMovies.isEmpty else {
+                handler(.failure(NetworkError.noMoviesAvailable))
+                return
+            }
+
             handler(.success(uniqueMovies))
         }
     }
