@@ -54,19 +54,14 @@ final class QuestionFactory: QuestionFactoryProtocol {
             switch result {
             case .success(let data):
                 guard let image = UIImage(data: data) else {
-                    self.delegate?.didFailToLoadData(with: NetworkError.imageDataConversionFailed)
+                    self.requestNextQuestion()
                     return
                 }
 
-                let ratingThreshold = Int.random(in: 6...8)
-                let question = QuizQuestion(
-                    image: image,
-                    text: "Рейтинг этого фильма больше чем \(ratingThreshold)?",
-                    correctAnswer: rating > Float(ratingThreshold)
-                )
+                let question = self.makeQuestion(for: rating, image: image)
                 self.delegate?.didReceiveNextQuestion(question: question)
-            case .failure(let error):
-                self.delegate?.didFailToLoadData(with: error)
+            case .failure:
+                self.requestNextQuestion()
             }
         }
     }
@@ -74,5 +69,52 @@ final class QuestionFactory: QuestionFactoryProtocol {
     func reset() {
         currentQuestionIndex = 0
         movies.shuffle()
+    }
+
+    private func makeQuestion(for rating: Float, image: UIImage) -> QuizQuestion {
+        let comparison = Bool.random()
+            ? RatingComparison.greaterThan
+            : RatingComparison.lessThan
+        let ratingThreshold = makeRatingThreshold(near: rating, comparison: comparison)
+
+        return QuizQuestion(
+            image: image,
+            text: "Рейтинг этого фильма \(comparison.questionText) чем \(ratingThreshold)?",
+            correctAnswer: comparison.isCorrect(movieRating: rating, threshold: Float(ratingThreshold))
+        )
+    }
+
+    private func makeRatingThreshold(near rating: Float, comparison: RatingComparison) -> Int {
+        let roundedRating = Int(rating.rounded())
+
+        switch comparison {
+        case .greaterThan:
+            return min(max(roundedRating - Int.random(in: 0...1), 5), 9)
+        case .lessThan:
+            return min(max(roundedRating + Int.random(in: 0...1), 6), 10)
+        }
+    }
+}
+
+private enum RatingComparison {
+    case greaterThan
+    case lessThan
+
+    var questionText: String {
+        switch self {
+        case .greaterThan:
+            return "больше"
+        case .lessThan:
+            return "меньше"
+        }
+    }
+
+    func isCorrect(movieRating: Float, threshold: Float) -> Bool {
+        switch self {
+        case .greaterThan:
+            return movieRating > threshold
+        case .lessThan:
+            return movieRating < threshold
+        }
     }
 }

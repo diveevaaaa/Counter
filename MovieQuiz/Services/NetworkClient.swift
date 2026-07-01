@@ -6,6 +6,7 @@ enum NetworkError: Error {
     case urlSessionError
     case apiError(String)
     case imageDataConversionFailed
+    case noMoviesAvailable
 }
 
 protocol NetworkRouting {
