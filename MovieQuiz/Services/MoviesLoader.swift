@@ -72,16 +72,11 @@ final class MoviesLoader: MoviesLoading {
             let error = receivedError
             lock.unlock()
 
-            if let error {
-                handler(.failure(error))
-                return
-            }
-
             let uniqueMovies = self.uniqueMovies(from: movies)
                 .filter { $0.rating != nil && $0.imageURL != nil }
 
             guard !uniqueMovies.isEmpty else {
-                handler(.failure(NetworkError.noMoviesAvailable))
+                handler(.failure(error ?? NetworkError.noMoviesAvailable))
                 return
             }
 

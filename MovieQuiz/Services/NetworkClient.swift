@@ -22,6 +22,7 @@ final class NetworkClient: NetworkRouting {
 
     func fetch(url: URL, handler: @escaping (Result<Data, Error>) -> Void) {
         var request = URLRequest(url: url)
+        request.timeoutInterval = 15
         request.setValue("MovieQuiz/1.0 (iOS)", forHTTPHeaderField: "User-Agent")
 
         session.dataTask(with: request) { data, response, error in
