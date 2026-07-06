@@ -17,19 +17,19 @@ final class MovieQuizUITests: XCTestCase {
     }
 
     func testYesButtonChangesQuestionCounter() {
-        waitForQuestionCounter("1/10")
+        waitForReadyQuestion("1/10")
 
         app.buttons["yesButton"].tap()
 
-        waitForQuestionCounter("2/10")
+        waitForReadyQuestion("2/10")
     }
 
     func testNoButtonChangesQuestionCounter() {
-        waitForQuestionCounter("1/10")
+        waitForReadyQuestion("1/10")
 
         app.buttons["noButton"].tap()
 
-        waitForQuestionCounter("2/10")
+        waitForReadyQuestion("2/10")
     }
 
     func testAlertAppearsAtEndOfRound() {
@@ -47,19 +47,25 @@ final class MovieQuizUITests: XCTestCase {
         XCTAssertTrue(alert.waitForExistence(timeout: 3))
         alert.buttons["Сыграть ещё раз"].tap()
 
-        XCTAssertFalse(alert.exists)
-        waitForQuestionCounter("1/10")
+        XCTAssertTrue(waitForAlertToDisappear(alert))
+        waitForReadyQuestion("1/10")
     }
 
     private func finishRound() {
-        waitForQuestionCounter("1/10")
+        waitForReadyQuestion("1/10")
 
         for questionNumber in 2...10 {
             app.buttons["yesButton"].tap()
-            waitForQuestionCounter("\(questionNumber)/10")
+            waitForReadyQuestion("\(questionNumber)/10")
         }
 
         app.buttons["yesButton"].tap()
+    }
+
+    private func waitForReadyQuestion(_ value: String) {
+        waitForQuestionCounter(value)
+        XCTAssertTrue(app.buttons["yesButton"].waitForExistence(timeout: 3))
+        XCTAssertTrue(app.buttons["yesButton"].isEnabled)
     }
 
     private func waitForQuestionCounter(_ value: String) {
@@ -70,5 +76,12 @@ final class MovieQuizUITests: XCTestCase {
         )
 
         wait(for: [expectation], timeout: 3)
+    }
+
+    private func waitForAlertToDisappear(_ alert: XCUIElement) -> Bool {
+        let predicate = NSPredicate(format: "exists == false")
+        let expectation = expectation(for: predicate, evaluatedWith: alert)
+        let result = XCTWaiter.wait(for: [expectation], timeout: 3)
+        return result == .completed
     }
 }
