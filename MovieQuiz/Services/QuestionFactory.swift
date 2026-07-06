@@ -1,4 +1,4 @@
-import UIKit
+import Foundation
 
 protocol QuestionFactoryDelegate: AnyObject {
     func didLoadDataFromServer()
@@ -53,12 +53,12 @@ final class QuestionFactory: QuestionFactoryProtocol {
 
             switch result {
             case .success(let data):
-                guard let image = UIImage(data: data) else {
+                guard !data.isEmpty else {
                     self.requestNextQuestion()
                     return
                 }
 
-                let question = self.makeQuestion(for: rating, image: image)
+                let question = self.makeQuestion(for: rating, imageData: data)
                 self.delegate?.didReceiveNextQuestion(question: question)
             case .failure:
                 self.requestNextQuestion()
@@ -71,14 +71,14 @@ final class QuestionFactory: QuestionFactoryProtocol {
         movies.shuffle()
     }
 
-    private func makeQuestion(for rating: Float, image: UIImage) -> QuizQuestion {
+    private func makeQuestion(for rating: Float, imageData: Data) -> QuizQuestion {
         let comparison = Bool.random()
             ? RatingComparison.greaterThan
             : RatingComparison.lessThan
         let ratingThreshold = makeRatingThreshold(near: rating, comparison: comparison)
 
         return QuizQuestion(
-            image: image,
+            imageData: imageData,
             text: "Рейтинг этого фильма \(comparison.questionText) чем \(ratingThreshold)?",
             correctAnswer: comparison.isCorrect(movieRating: rating, threshold: Float(ratingThreshold))
         )
@@ -93,6 +93,37 @@ final class QuestionFactory: QuestionFactoryProtocol {
         case .lessThan:
             return min(max(roundedRating + Int.random(in: 0...1), 6), 10)
         }
+    }
+}
+
+final class MockQuestionFactory: QuestionFactoryProtocol {
+    weak var delegate: QuestionFactoryDelegate?
+
+    private var currentQuestionIndex = 0
+    private let questions: [QuizQuestion]
+
+    init() {
+        let imageData = Data(base64Encoded: "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+/p9sAAAAASUVORK5CYII=") ?? Data()
+        questions = (1...10).map { index in
+            QuizQuestion(
+                imageData: imageData,
+                text: "Тестовый вопрос \(index)?",
+                correctAnswer: index % 2 == 0
+            )
+        }
+    }
+
+    func loadData() {
+        delegate?.didLoadDataFromServer()
+    }
+
+    func requestNextQuestion() {
+        delegate?.didReceiveNextQuestion(question: questions[safe: currentQuestionIndex])
+        currentQuestionIndex += 1
+    }
+
+    func reset() {
+        currentQuestionIndex = 0
     }
 }
 
