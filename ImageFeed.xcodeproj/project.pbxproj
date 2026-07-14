@@ -13,8 +13,12 @@
 		100000000000000000000005 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000005 /* Photo.swift */; };
 		100000000000000000000006 /* ImagesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000006 /* ImagesListViewController.swift */; };
 		100000000000000000000007 /* ImagesListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000007 /* ImagesListCell.swift */; };
+		100000000000000000000008 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000008 /* Main.storyboard */; };
 		100000000000000000000009 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000009 /* Assets.xcassets */; };
 		100000000000000000000010 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000010 /* LaunchScreen.storyboard */; };
+		100000000000000000000011 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000013 /* ProfileViewController.swift */; };
+		100000000000000000000012 /* SingleImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000014 /* SingleImageViewController.swift */; };
+		100000000000000000000013 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000015 /* TabBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,10 +28,14 @@
 		200000000000000000000005 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		200000000000000000000006 /* ImagesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesListViewController.swift; sourceTree = "<group>"; };
 		200000000000000000000007 /* ImagesListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesListCell.swift; sourceTree = "<group>"; };
+		200000000000000000000008 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		200000000000000000000009 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		200000000000000000000010 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		200000000000000000000011 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		200000000000000000000012 /* ImageFeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageFeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		200000000000000000000013 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		200000000000000000000014 /* SingleImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleImageViewController.swift; sourceTree = "<group>"; };
+		200000000000000000000015 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +71,8 @@
 				400000000000000000000004 /* App */,
 				400000000000000000000005 /* Models */,
 				400000000000000000000006 /* ImagesList */,
+				400000000000000000000007 /* Profile */,
+				400000000000000000000009 /* SingleImage */,
 				400000000000000000000008 /* Resources */,
 			);
 			path = ImageFeed;
@@ -74,6 +84,7 @@
 				200000000000000000000001 /* AppDelegate.swift */,
 				200000000000000000000002 /* SceneDelegate.swift */,
 				200000000000000000000004 /* UIColor+Palette.swift */,
+				200000000000000000000015 /* TabBarController.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -95,10 +106,27 @@
 			path = ImagesList;
 			sourceTree = "<group>";
 		};
+		400000000000000000000007 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				200000000000000000000013 /* ProfileViewController.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		400000000000000000000009 /* SingleImage */ = {
+			isa = PBXGroup;
+			children = (
+				200000000000000000000014 /* SingleImageViewController.swift */,
+			);
+			path = SingleImage;
+			sourceTree = "<group>";
+		};
 		400000000000000000000008 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
 				200000000000000000000009 /* Assets.xcassets */,
+				200000000000000000000008 /* Main.storyboard */,
 				200000000000000000000010 /* LaunchScreen.storyboard */,
 				200000000000000000000011 /* Info.plist */,
 			);
@@ -164,6 +192,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				100000000000000000000010 /* LaunchScreen.storyboard in Resources */,
+				100000000000000000000008 /* Main.storyboard in Resources */,
 				100000000000000000000009 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -181,6 +210,9 @@
 				100000000000000000000005 /* Photo.swift in Sources */,
 				100000000000000000000006 /* ImagesListViewController.swift in Sources */,
 				100000000000000000000007 /* ImagesListCell.swift in Sources */,
+				100000000000000000000011 /* ProfileViewController.swift in Sources */,
+				100000000000000000000012 /* SingleImageViewController.swift in Sources */,
+				100000000000000000000013 /* TabBarController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
