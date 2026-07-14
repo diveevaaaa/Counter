@@ -4,14 +4,31 @@ final class TabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let feedIcon = UIImage(named: "tab_editorial_active")?.withRenderingMode(.alwaysOriginal)
-        let profileIcon = UIImage(named: "tab_profile_active")?.withRenderingMode(.alwaysOriginal)
+        setupAppearance()
+        setupViewControllers()
+    }
+
+    private func setupAppearance() {
+        let appearance = UITabBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = .ypBlack
+        appearance.shadowColor = UIColor.black.withAlphaComponent(0.3)
+
+        tabBar.standardAppearance = appearance
+        tabBar.scrollEdgeAppearance = appearance
+    }
+
+    private func setupViewControllers() {
+        let feedInactiveIcon = UIImage(named: "tab_editorial_no_active")?.withRenderingMode(.alwaysOriginal)
+        let feedActiveIcon = UIImage(named: "tab_editorial_active")?.withRenderingMode(.alwaysOriginal)
+        let profileInactiveIcon = UIImage(named: "tab_profile_no_active")?.withRenderingMode(.alwaysOriginal)
+        let profileActiveIcon = UIImage(named: "tab_profile_active")?.withRenderingMode(.alwaysOriginal)
 
         let imagesListViewController = ImagesListViewController()
         imagesListViewController.tabBarItem = UITabBarItem(
             title: nil,
-            image: feedIcon,
-            selectedImage: feedIcon
+            image: feedInactiveIcon,
+            selectedImage: feedActiveIcon
         )
 
         let storyboard = UIStoryboard(name: "Main", bundle: .main)
@@ -20,18 +37,10 @@ final class TabBarController: UITabBarController {
         )
         profileViewController.tabBarItem = UITabBarItem(
             title: nil,
-            image: profileIcon,
-            selectedImage: profileIcon
+            image: profileInactiveIcon,
+            selectedImage: profileActiveIcon
         )
 
         viewControllers = [imagesListViewController, profileViewController]
-
-        let appearance = UITabBarAppearance()
-        appearance.configureWithOpaqueBackground()
-        appearance.backgroundColor = .ypBlack
-        appearance.stackedLayoutAppearance.normal.iconColor = .ypGray
-        appearance.stackedLayoutAppearance.selected.iconColor = .ypWhite
-        tabBar.standardAppearance = appearance
-        tabBar.scrollEdgeAppearance = appearance
     }
 }
