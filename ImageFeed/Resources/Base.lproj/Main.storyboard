@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="profile-view-controller">
+    <device id="retina6_12" orientation="portrait" appearance="dark"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Profile View Controller-->
+        <scene sceneID="profile-scene">
+            <objects>
+                <viewController storyboardIdentifier="ProfileViewController" id="profile-view-controller" customClass="ProfileViewController" customModule="ImageFeed" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="profile-view">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatarPlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="profile-avatar">
+                                <rect key="frame" x="16" y="84" width="70" height="70"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <real key="value" value="35"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Екатерина Новикова" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="profile-name">
+                                <rect key="frame" x="16" y="162" width="361" height="28"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
+                                <color key="textColor" name="ypWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@ekaterina_nov" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="profile-login">
+                                <rect key="frame" x="16" y="198" width="361" height="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" name="ypGray"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello, World!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="profile-description">
+                                <rect key="frame" x="16" y="222" width="361" height="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" name="ypWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="profile-logout">
+                                <rect key="frame" x="333" y="97" width="44" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="44" id="logout-width"/>
+                                    <constraint firstAttribute="height" constant="44" id="logout-height"/>
+                                </constraints>
+                                <state key="normal" image="logoutIcon"/>
+                                <connections>
+                                    <action selector="didTapLogoutButton:" destination="profile-view-controller" eventType="touchUpInside" id="logout-action"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="profile-safe-area"/>
+                        <color key="backgroundColor" name="ypBlack"/>
+                        <constraints>
+                            <constraint firstItem="profile-avatar" firstAttribute="top" secondItem="profile-safe-area" secondAttribute="top" constant="32" id="avatar-top"/>
+                            <constraint firstItem="profile-avatar" firstAttribute="leading" secondItem="profile-safe-area" secondAttribute="leading" constant="16" id="avatar-leading"/>
+                            <constraint firstItem="profile-avatar" firstAttribute="width" constant="70" id="avatar-width"/>
+                            <constraint firstItem="profile-avatar" firstAttribute="height" constant="70" id="avatar-height"/>
+                            <constraint firstItem="profile-name" firstAttribute="top" secondItem="profile-avatar" secondAttribute="bottom" constant="8" id="name-top"/>
+                            <constraint firstItem="profile-name" firstAttribute="leading" secondItem="profile-avatar" secondAttribute="leading" id="name-leading"/>
+                            <constraint firstItem="profile-safe-area" firstAttribute="trailing" secondItem="profile-name" secondAttribute="trailing" constant="16" id="name-trailing"/>
+                            <constraint firstItem="profile-login" firstAttribute="top" secondItem="profile-name" secondAttribute="bottom" constant="8" id="login-top"/>
+                            <constraint firstItem="profile-login" firstAttribute="leading" secondItem="profile-avatar" secondAttribute="leading" id="login-leading"/>
+                            <constraint firstItem="profile-safe-area" firstAttribute="trailing" secondItem="profile-login" secondAttribute="trailing" constant="16" id="login-trailing"/>
+                            <constraint firstItem="profile-description" firstAttribute="top" secondItem="profile-login" secondAttribute="bottom" constant="8" id="description-top"/>
+                            <constraint firstItem="profile-description" firstAttribute="leading" secondItem="profile-avatar" secondAttribute="leading" id="description-leading"/>
+                            <constraint firstItem="profile-safe-area" firstAttribute="trailing" secondItem="profile-description" secondAttribute="trailing" constant="16" id="description-trailing"/>
+                            <constraint firstItem="profile-logout" firstAttribute="centerY" secondItem="profile-avatar" secondAttribute="centerY" id="logout-center-y"/>
+                            <constraint firstItem="profile-safe-area" firstAttribute="trailing" secondItem="profile-logout" secondAttribute="trailing" constant="16" id="logout-trailing"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="avatarImageView" destination="profile-avatar" id="avatar-outlet"/>
+                        <outlet property="descriptionLabel" destination="profile-description" id="description-outlet"/>
+                        <outlet property="loginNameLabel" destination="profile-login" id="login-outlet"/>
+                        <outlet property="logoutButton" destination="profile-logout" id="logout-outlet"/>
+                        <outlet property="nameLabel" destination="profile-name" id="name-outlet"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="profile-first-responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="132" y="4"/>
+        </scene>
+        <!--Single Image View Controller-->
+        <scene sceneID="single-image-scene">
+            <objects>
+                <viewController storyboardIdentifier="SingleImageViewController" modalPresentationStyle="fullScreen" id="single-image-view-controller" customClass="SingleImageViewController" customModule="ImageFeed" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="single-image-view">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="single-scroll-view">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="single-image-view-inner">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="393"/>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="single-image-view-inner" firstAttribute="top" secondItem="scroll-content-guide" secondAttribute="top" id="image-top"/>
+                                    <constraint firstItem="single-image-view-inner" firstAttribute="leading" secondItem="scroll-content-guide" secondAttribute="leading" id="image-leading"/>
+                                    <constraint firstItem="scroll-content-guide" firstAttribute="trailing" secondItem="single-image-view-inner" secondAttribute="trailing" id="image-trailing"/>
+                                    <constraint firstItem="scroll-content-guide" firstAttribute="bottom" secondItem="single-image-view-inner" secondAttribute="bottom" id="image-bottom"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="scroll-content-guide"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="scroll-frame-guide"/>
+                            </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="single-back-button">
+                                <rect key="frame" x="8" y="67" width="48" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="48" id="back-width"/>
+                                    <constraint firstAttribute="height" constant="48" id="back-height"/>
+                                </constraints>
+                                <state key="normal" image="backIcon"/>
+                                <connections>
+                                    <action selector="didTapBackButton:" destination="single-image-view-controller" eventType="touchUpInside" id="back-action"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="single-share-button">
+                                <rect key="frame" x="171.5" y="751" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="share-width"/>
+                                    <constraint firstAttribute="height" constant="50" id="share-height"/>
+                                </constraints>
+                                <state key="normal" image="shareIcon"/>
+                                <connections>
+                                    <action selector="didTapShareButton:" destination="single-image-view-controller" eventType="touchUpInside" id="share-action"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="single-safe-area"/>
+                        <color key="backgroundColor" name="ypBlack"/>
+                        <constraints>
+                            <constraint firstItem="single-scroll-view" firstAttribute="top" secondItem="single-image-view" secondAttribute="top" id="scroll-top"/>
+                            <constraint firstItem="single-scroll-view" firstAttribute="leading" secondItem="single-image-view" secondAttribute="leading" id="scroll-leading"/>
+                            <constraint firstAttribute="trailing" secondItem="single-scroll-view" secondAttribute="trailing" id="scroll-trailing"/>
+                            <constraint firstAttribute="bottom" secondItem="single-scroll-view" secondAttribute="bottom" id="scroll-bottom"/>
+                            <constraint firstItem="single-back-button" firstAttribute="leading" secondItem="single-safe-area" secondAttribute="leading" constant="8" id="back-leading"/>
+                            <constraint firstItem="single-back-button" firstAttribute="top" secondItem="single-safe-area" secondAttribute="top" constant="8" id="back-top"/>
+                            <constraint firstItem="single-share-button" firstAttribute="centerX" secondItem="single-safe-area" secondAttribute="centerX" id="share-center-x"/>
+                            <constraint firstItem="single-safe-area" firstAttribute="bottom" secondItem="single-share-button" secondAttribute="bottom" constant="17" id="share-bottom"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="single-image-view-inner" id="image-outlet"/>
+                        <outlet property="scrollView" destination="single-scroll-view" id="scroll-outlet"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="single-first-responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="900" y="4"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="avatarPlaceholder" width="70" height="70"/>
+        <image name="backIcon" width="24" height="24"/>
+        <image name="logoutIcon" width="44" height="44"/>
+        <image name="shareIcon" width="50" height="50"/>
+        <namedColor name="ypBlack">
+            <color red="0.10196078431372549" green="0.10588235294117647" blue="0.13333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="ypGray">
+            <color red="0.6823529411764706" green="0.6862745098039216" blue="0.7058823529411765" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="ypWhite">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
