@@ -1,13 +1,13 @@
-import UIKit
+import Foundation
 
 struct QuizQuestion {
-    let image: UIImage
+    let imageData: Data
     let text: String
     let correctAnswer: Bool
 }
 
 struct QuizStepViewModel {
-    let image: UIImage
+    let imageData: Data
     let question: String
     let questionNumber: String
 }
