@@ -11,10 +11,8 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = scene as? UIWindowScene else { return }
 
         let window = UIWindow(windowScene: windowScene)
-        let imagesListViewController = ImagesListViewController()
-        let navigationController = UINavigationController(rootViewController: imagesListViewController)
-        navigationController.setNavigationBarHidden(true, animated: false)
-        window.rootViewController = navigationController
+        let tabBarController = TabBarController()
+        window.rootViewController = tabBarController
         window.makeKeyAndVisible()
         self.window = window
     }

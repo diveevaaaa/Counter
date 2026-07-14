@@ -70,6 +70,20 @@ extension ImagesListViewController: UITableViewDataSource {
 extension ImagesListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+
+        let storyboard = UIStoryboard(name: "Main", bundle: .main)
+        guard
+            let singleImageViewController = storyboard.instantiateViewController(
+                withIdentifier: "SingleImageViewController"
+            ) as? SingleImageViewController
+        else {
+            return
+        }
+
+        let photo = photos[indexPath.row]
+        singleImageViewController.image = UIImage(named: "Dogs/\(photo.imageName)")
+        singleImageViewController.modalPresentationStyle = .fullScreen
+        present(singleImageViewController, animated: true)
     }
 }
 
