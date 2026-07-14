@@ -11,7 +11,8 @@ final class ProfileViewController: UIViewController {
         super.viewDidLoad()
 
         view.backgroundColor = .ypBlack
-        avatarImageView.image = UIImage(named: "avatarPlaceholder")
+        avatarImageView.image = UIImage(named: "avatarPhoto")
+        avatarImageView.contentMode = .scaleAspectFill
         avatarImageView.layer.cornerRadius = 35
         avatarImageView.clipsToBounds = true
 

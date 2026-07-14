@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatarPlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="profile-avatar">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatarPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="profile-avatar">
                                 <rect key="frame" x="16" y="84" width="70" height="70"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -99,7 +99,7 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="single-scroll-view">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="single-image-view-inner">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="single-image-view-inner">
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="393"/>
                                     </imageView>
                                 </subviews>
@@ -118,7 +118,7 @@
                                     <constraint firstAttribute="width" constant="48" id="back-width"/>
                                     <constraint firstAttribute="height" constant="48" id="back-height"/>
                                 </constraints>
-                                <state key="normal" image="backIcon"/>
+                                <state key="normal" image="nav_back_button"/>
                                 <connections>
                                     <action selector="didTapBackButton:" destination="single-image-view-controller" eventType="touchUpInside" id="back-action"/>
                                 </connections>
@@ -129,7 +129,7 @@
                                     <constraint firstAttribute="width" constant="50" id="share-width"/>
                                     <constraint firstAttribute="height" constant="50" id="share-height"/>
                                 </constraints>
-                                <state key="normal" image="shareIcon"/>
+                                <state key="normal" image="share_button"/>
                                 <connections>
                                     <action selector="didTapShareButton:" destination="single-image-view-controller" eventType="touchUpInside" id="share-action"/>
                                 </connections>
@@ -145,7 +145,7 @@
                             <constraint firstItem="single-back-button" firstAttribute="leading" secondItem="single-safe-area" secondAttribute="leading" constant="8" id="back-leading"/>
                             <constraint firstItem="single-back-button" firstAttribute="top" secondItem="single-safe-area" secondAttribute="top" constant="8" id="back-top"/>
                             <constraint firstItem="single-share-button" firstAttribute="centerX" secondItem="single-safe-area" secondAttribute="centerX" id="share-center-x"/>
-                            <constraint firstItem="single-safe-area" firstAttribute="bottom" secondItem="single-share-button" secondAttribute="bottom" constant="17" id="share-bottom"/>
+                            <constraint firstItem="single-safe-area" firstAttribute="bottom" secondItem="single-share-button" secondAttribute="bottom" constant="51" id="share-bottom"/>
                         </constraints>
                     </view>
                     <connections>
@@ -159,10 +159,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="avatarPlaceholder" width="70" height="70"/>
-        <image name="backIcon" width="24" height="24"/>
+        <image name="avatarPhoto" width="70" height="70"/>
         <image name="logoutIcon" width="44" height="44"/>
-        <image name="shareIcon" width="50" height="50"/>
+        <image name="nav_back_button" width="48" height="48"/>
+        <image name="share_button" width="50" height="50"/>
         <namedColor name="ypBlack">
             <color red="0.10196078431372549" green="0.10588235294117647" blue="0.13333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
