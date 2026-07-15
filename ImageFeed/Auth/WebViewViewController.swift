@@ -25,14 +25,15 @@ final class WebViewViewController: UIViewController {
         let progressView = UIProgressView()
         progressView.translatesAutoresizingMaskIntoConstraints = false
         progressView.progressTintColor = .ypBlack
+        progressView.trackTintColor = .clear
         return progressView
     }()
 
     private lazy var backButton: UIButton = {
-        let button = UIButton(type: .system)
+        let button = UIButton(type: .custom)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setImage(UIImage(named: "nav_back_button"), for: .normal)
-        button.tintColor = .ypBlack
+        let image = UIImage(named: "backIcon")?.withRenderingMode(.alwaysOriginal)
+        button.setImage(image, for: .normal)
         button.addTarget(self, action: #selector(didTapBackButton), for: .touchUpInside)
         return button
     }()
@@ -44,6 +45,11 @@ final class WebViewViewController: UIViewController {
         webView.navigationDelegate = self
         presenter?.viewDidLoad()
         setupProgressObserver()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
     }
 
     deinit {
@@ -63,8 +69,8 @@ final class WebViewViewController: UIViewController {
         NSLayoutConstraint.activate([
             backButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 9),
             backButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 9),
-            backButton.widthAnchor.constraint(equalToConstant: 44),
-            backButton.heightAnchor.constraint(equalToConstant: 44),
+            backButton.widthAnchor.constraint(equalToConstant: 24),
+            backButton.heightAnchor.constraint(equalToConstant: 24),
 
             progressView.topAnchor.constraint(equalTo: backButton.bottomAnchor, constant: 9),
             progressView.leadingAnchor.constraint(equalTo: view.leadingAnchor),

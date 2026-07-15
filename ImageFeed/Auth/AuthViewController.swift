@@ -7,15 +7,14 @@ final class AuthViewController: UIViewController {
     private let tokenStorage = OAuth2TokenStorage.shared
 
     private lazy var logoImageView: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: "practicumLogo"))
+        let imageView = UIImageView(image: UIImage(named: "Logo_of_Unsplash"))
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
-        imageView.tintColor = .ypWhite
         return imageView
     }()
 
     private lazy var loginButton: UIButton = {
-        let button = UIButton(type: .system)
+        let button = UIButton(type: .custom)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = .ypWhite
         button.layer.cornerRadius = 16
@@ -33,7 +32,11 @@ final class AuthViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .ypBlack
         setupLayout()
-        setupNavigationBar()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
     }
 
     @objc
@@ -43,7 +46,8 @@ final class AuthViewController: UIViewController {
         webViewViewController.presenter = presenter
         webViewViewController.delegate = self
         presenter.view = webViewViewController
-        navigationController?.pushViewController(webViewViewController, animated: true)
+        webViewViewController.modalPresentationStyle = .fullScreen
+        present(webViewViewController, animated: true)
     }
 
     @objc
@@ -56,12 +60,6 @@ final class AuthViewController: UIViewController {
         loginButton.backgroundColor = .ypWhite
     }
 
-    private func setupNavigationBar() {
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        navigationController?.navigationBar.shadowImage = UIImage()
-        navigationController?.navigationBar.isTranslucent = true
-    }
-
     private func setupLayout() {
         view.addSubview(logoImageView)
         view.addSubview(loginButton)
@@ -69,8 +67,8 @@ final class AuthViewController: UIViewController {
         NSLayoutConstraint.activate([
             logoImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             logoImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            logoImageView.widthAnchor.constraint(equalToConstant: 75),
-            logoImageView.heightAnchor.constraint(equalToConstant: 78),
+            logoImageView.widthAnchor.constraint(equalToConstant: 60),
+            logoImageView.heightAnchor.constraint(equalToConstant: 60),
 
             loginButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
             loginButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
@@ -92,26 +90,28 @@ final class AuthViewController: UIViewController {
 
 extension AuthViewController: WebViewViewControllerDelegate {
     func webViewViewController(_ viewController: WebViewViewController, didAuthenticateWithCode code: String) {
-        navigationController?.popViewController(animated: true)
-        UIBlockingProgressHUD.show()
-
-        oauth2Service.fetchAuthToken(code: code) { [weak self] result in
+        dismiss(animated: true) { [weak self] in
             guard let self else { return }
 
-            switch result {
-            case .success(let token):
-                self.tokenStorage.token = token
-                UIBlockingProgressHUD.dismiss()
-                self.delegate?.authViewControllerDidAuthenticate(self)
-            case .failure(let error):
-                UIBlockingProgressHUD.dismiss()
-                print("[AuthViewController] Failed to fetch auth token: \(error.localizedDescription)")
-                self.showAuthErrorAlert()
+            UIBlockingProgressHUD.show()
+            self.oauth2Service.fetchAuthToken(code: code) { [weak self] result in
+                guard let self else { return }
+
+                switch result {
+                case .success(let token):
+                    self.tokenStorage.token = token
+                    UIBlockingProgressHUD.dismiss()
+                    self.delegate?.authViewControllerDidAuthenticate(self)
+                case .failure(let error):
+                    UIBlockingProgressHUD.dismiss()
+                    print("[AuthViewController] Failed to fetch auth token: \(error.localizedDescription)")
+                    self.showAuthErrorAlert()
+                }
             }
         }
     }
 
     func webViewViewControllerDidCancel(_ viewController: WebViewViewController) {
-        navigationController?.popViewController(animated: true)
+        dismiss(animated: true)
     }
 }
