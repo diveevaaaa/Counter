@@ -19,6 +19,18 @@
 		100000000000000000000011 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000013 /* ProfileViewController.swift */; };
 		100000000000000000000012 /* SingleImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000014 /* SingleImageViewController.swift */; };
 		100000000000000000000013 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000015 /* TabBarController.swift */; };
+		100000000000000000000014 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000016 /* Constants.swift */; };
+		100000000000000000000015 /* OAuthTokenResponseBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000017 /* OAuthTokenResponseBody.swift */; };
+		100000000000000000000016 /* OAuth2Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000018 /* OAuth2Service.swift */; };
+		100000000000000000000017 /* OAuth2TokenStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000019 /* OAuth2TokenStorage.swift */; };
+		100000000000000000000018 /* UIBlockingProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000020 /* UIBlockingProgressHUD.swift */; };
+		100000000000000000000019 /* AuthHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000021 /* AuthHelper.swift */; };
+		100000000000000000000020 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000022 /* AuthViewController.swift */; };
+		100000000000000000000021 /* AuthViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000023 /* AuthViewControllerDelegate.swift */; };
+		100000000000000000000022 /* WebViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000024 /* WebViewPresenter.swift */; };
+		100000000000000000000023 /* WebViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000025 /* WebViewViewController.swift */; };
+		100000000000000000000024 /* WebViewViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000026 /* WebViewViewControllerDelegate.swift */; };
+		100000000000000000000025 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000027 /* SplashViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +48,18 @@
 		200000000000000000000013 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		200000000000000000000014 /* SingleImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleImageViewController.swift; sourceTree = "<group>"; };
 		200000000000000000000015 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		200000000000000000000016 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		200000000000000000000017 /* OAuthTokenResponseBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthTokenResponseBody.swift; sourceTree = "<group>"; };
+		200000000000000000000018 /* OAuth2Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuth2Service.swift; sourceTree = "<group>"; };
+		200000000000000000000019 /* OAuth2TokenStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuth2TokenStorage.swift; sourceTree = "<group>"; };
+		200000000000000000000020 /* UIBlockingProgressHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBlockingProgressHUD.swift; sourceTree = "<group>"; };
+		200000000000000000000021 /* AuthHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthHelper.swift; sourceTree = "<group>"; };
+		200000000000000000000022 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
+		200000000000000000000023 /* AuthViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewControllerDelegate.swift; sourceTree = "<group>"; };
+		200000000000000000000024 /* WebViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewPresenter.swift; sourceTree = "<group>"; };
+		200000000000000000000025 /* WebViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewViewController.swift; sourceTree = "<group>"; };
+		200000000000000000000026 /* WebViewViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewViewControllerDelegate.swift; sourceTree = "<group>"; };
+		200000000000000000000027 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +93,10 @@
 			isa = PBXGroup;
 			children = (
 				400000000000000000000004 /* App */,
+				400000000000000000000010 /* Auth */,
+				400000000000000000000011 /* Splash */,
+				400000000000000000000012 /* Services */,
+				400000000000000000000013 /* Helpers */,
 				400000000000000000000005 /* Models */,
 				400000000000000000000006 /* ImagesList */,
 				400000000000000000000007 /* Profile */,
@@ -76,6 +104,45 @@
 				400000000000000000000008 /* Resources */,
 			);
 			path = ImageFeed;
+			sourceTree = "<group>";
+		};
+		400000000000000000000010 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				200000000000000000000021 /* AuthHelper.swift */,
+				200000000000000000000022 /* AuthViewController.swift */,
+				200000000000000000000023 /* AuthViewControllerDelegate.swift */,
+				200000000000000000000024 /* WebViewPresenter.swift */,
+				200000000000000000000025 /* WebViewViewController.swift */,
+				200000000000000000000026 /* WebViewViewControllerDelegate.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		400000000000000000000011 /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				200000000000000000000027 /* SplashViewController.swift */,
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
+		400000000000000000000012 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				200000000000000000000018 /* OAuth2Service.swift */,
+				200000000000000000000019 /* OAuth2TokenStorage.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		400000000000000000000013 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				200000000000000000000016 /* Constants.swift */,
+				200000000000000000000020 /* UIBlockingProgressHUD.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		400000000000000000000004 /* App */ = {
@@ -93,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				200000000000000000000005 /* Photo.swift */,
+				200000000000000000000017 /* OAuthTokenResponseBody.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -213,6 +281,18 @@
 				100000000000000000000011 /* ProfileViewController.swift in Sources */,
 				100000000000000000000012 /* SingleImageViewController.swift in Sources */,
 				100000000000000000000013 /* TabBarController.swift in Sources */,
+				100000000000000000000014 /* Constants.swift in Sources */,
+				100000000000000000000015 /* OAuthTokenResponseBody.swift in Sources */,
+				100000000000000000000016 /* OAuth2Service.swift in Sources */,
+				100000000000000000000017 /* OAuth2TokenStorage.swift in Sources */,
+				100000000000000000000018 /* UIBlockingProgressHUD.swift in Sources */,
+				100000000000000000000019 /* AuthHelper.swift in Sources */,
+				100000000000000000000020 /* AuthViewController.swift in Sources */,
+				100000000000000000000021 /* AuthViewControllerDelegate.swift in Sources */,
+				100000000000000000000022 /* WebViewPresenter.swift in Sources */,
+				100000000000000000000023 /* WebViewViewController.swift in Sources */,
+				100000000000000000000024 /* WebViewViewControllerDelegate.swift in Sources */,
+				100000000000000000000025 /* SplashViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
