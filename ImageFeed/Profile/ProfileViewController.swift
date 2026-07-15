@@ -35,9 +35,23 @@ final class ProfileViewController: UIViewController {
             preferredStyle: .alert
         )
 
-        alert.addAction(UIAlertAction(title: "Да", style: .default))
+        alert.addAction(UIAlertAction(title: "Да", style: .default) { [weak self] _ in
+            self?.performLogout()
+        })
         alert.addAction(UIAlertAction(title: "Нет", style: .cancel))
 
         present(alert, animated: true)
+    }
+
+    private func performLogout() {
+        OAuth2TokenStorage.shared.clearToken()
+
+        guard let window = view.window else {
+            print("[ProfileViewController] Failed to get window for logout")
+            return
+        }
+
+        let splashViewController = SplashViewController()
+        window.rootViewController = splashViewController
     }
 }
