@@ -15,10 +15,22 @@ final class WebViewViewController: UIViewController {
     private var estimatedProgressObservation: NSKeyValueObservation?
 
     private lazy var webView: WKWebView = {
-        let webView = WKWebView()
+        let configuration = WKWebViewConfiguration()
+        configuration.defaultWebpagePreferences.allowsContentJavaScript = true
+
+        let webView = WKWebView(frame: .zero, configuration: configuration)
         webView.translatesAutoresizingMaskIntoConstraints = false
         webView.backgroundColor = .ypWhite
+        webView.isOpaque = false
+        webView.scrollView.backgroundColor = .ypWhite
         return webView
+    }()
+
+    private lazy var headerView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .ypWhite
+        return view
     }()
 
     private lazy var progressView: UIProgressView = {
@@ -32,8 +44,10 @@ final class WebViewViewController: UIViewController {
     private lazy var backButton: UIButton = {
         let button = UIButton(type: .custom)
         button.translatesAutoresizingMaskIntoConstraints = false
-        let image = UIImage(named: "backIcon")?.withRenderingMode(.alwaysOriginal)
+        let image = UIImage(named: "BackwardBlack")?.withRenderingMode(.alwaysOriginal)
         button.setImage(image, for: .normal)
+        button.contentHorizontalAlignment = .left
+        button.contentVerticalAlignment = .center
         button.addTarget(self, action: #selector(didTapBackButton), for: .touchUpInside)
         return button
     }()
@@ -62,24 +76,31 @@ final class WebViewViewController: UIViewController {
     }
 
     private func setupLayout() {
-        view.addSubview(backButton)
-        view.addSubview(progressView)
         view.addSubview(webView)
+        view.addSubview(headerView)
+        headerView.addSubview(backButton)
+        headerView.addSubview(progressView)
 
         NSLayoutConstraint.activate([
-            backButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 9),
-            backButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 9),
-            backButton.widthAnchor.constraint(equalToConstant: 24),
-            backButton.heightAnchor.constraint(equalToConstant: 24),
-
-            progressView.topAnchor.constraint(equalTo: backButton.bottomAnchor, constant: 9),
-            progressView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            progressView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-
-            webView.topAnchor.constraint(equalTo: progressView.bottomAnchor),
+            webView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             webView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             webView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            webView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            webView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+
+            headerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            headerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            headerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+
+            backButton.topAnchor.constraint(equalTo: headerView.topAnchor, constant: 9),
+            backButton.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: 9),
+            backButton.widthAnchor.constraint(equalToConstant: 44),
+            backButton.heightAnchor.constraint(equalToConstant: 44),
+
+            progressView.topAnchor.constraint(equalTo: backButton.bottomAnchor, constant: 9),
+            progressView.leadingAnchor.constraint(equalTo: headerView.leadingAnchor),
+            progressView.trailingAnchor.constraint(equalTo: headerView.trailingAnchor),
+            progressView.bottomAnchor.constraint(equalTo: headerView.bottomAnchor),
+            progressView.heightAnchor.constraint(equalToConstant: 2)
         ])
     }
 
