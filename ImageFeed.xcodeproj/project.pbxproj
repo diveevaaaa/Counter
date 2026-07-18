@@ -36,8 +36,8 @@
 		100000000000000000000028 /* UserResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000030 /* UserResult.swift */; };
 		100000000000000000000029 /* ProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000031 /* ProfileService.swift */; };
 		100000000000000000000030 /* ProfileImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000032 /* ProfileImageService.swift */; };
-		100000000000000000000031 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 300000000000000000000003 /* Kingfisher */; };
-		100000000000000000000032 /* SwiftKeychainWrapper in Frameworks */ = {isa = PBXBuildFile; productRef = 300000000000000000000004 /* SwiftKeychainWrapper */; };
+		100000000000000000000031 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 320000000000000000000001 /* Kingfisher */; };
+		100000000000000000000032 /* SwiftKeychainWrapper in Frameworks */ = {isa = PBXBuildFile; productRef = 320000000000000000000002 /* SwiftKeychainWrapper */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -237,8 +237,8 @@
 			);
 			name = ImageFeed;
 			packageProductDependencies = (
-				300000000000000000000003 /* Kingfisher */,
-				300000000000000000000004 /* SwiftKeychainWrapper */,
+				320000000000000000000001 /* Kingfisher */,
+				320000000000000000000002 /* SwiftKeychainWrapper */,
 			);
 			productName = ImageFeed;
 			productReference = 200000000000000000000012 /* ImageFeed.app */;
@@ -269,8 +269,8 @@
 			);
 			mainGroup = 400000000000000000000001;
 			packageReferences = (
-				300000000000000000000001 /* XCRemoteSwiftPackageReference "Kingfisher" */,
-				300000000000000000000002 /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */,
+				310000000000000000000001 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				310000000000000000000002 /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */,
 			);
 			productRefGroup = 400000000000000000000002 /* Products */;
 			projectDirPath = "";
@@ -520,7 +520,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		300000000000000000000001 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+		310000000000000000000001 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher";
 			requirement = {
@@ -528,7 +528,7 @@
 				minimumVersion = 8.2.0;
 			};
 		};
-		300000000000000000000002 /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */ = {
+		310000000000000000000002 /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/jrendel/SwiftKeychainWrapper";
 			requirement = {
@@ -539,14 +539,14 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		300000000000000000000003 /* Kingfisher */ = {
+		320000000000000000000001 /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 300000000000000000000001 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			package = 310000000000000000000001 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
 		};
-		300000000000000000000004 /* SwiftKeychainWrapper */ = {
+		320000000000000000000002 /* SwiftKeychainWrapper */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 300000000000000000000002 /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */;
+			package = 310000000000000000000002 /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */;
 			productName = SwiftKeychainWrapper;
 		};
 /* End XCSwiftPackageProductDependency section */
