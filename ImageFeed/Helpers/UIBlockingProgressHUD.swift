@@ -33,12 +33,17 @@ final class UIBlockingProgressHUD {
 
     static func dismiss() {
         DispatchQueue.main.async {
+            isBlocking = false
+
             guard let window = activeWindow() else { return }
 
-            isBlocking = false
             window.isUserInteractionEnabled = true
             window.viewWithTag(overlayTag)?.removeFromSuperview()
         }
+    }
+
+    static func reset() {
+        dismiss()
     }
 
     private static func activeWindow() -> UIWindow? {

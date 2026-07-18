@@ -41,7 +41,14 @@ final class AuthViewController: UIViewController {
 
     @objc
     private func didTapLoginButton() {
-        guard !UIBlockingProgressHUD.isBlocking else { return }
+        if UIBlockingProgressHUD.isBlocking {
+            UIBlockingProgressHUD.reset()
+        }
+
+        guard Constants.areAPIKeysConfigured else {
+            showMissingAPIKeysAlert()
+            return
+        }
 
         let webViewViewController = WebViewViewController()
         let presenter = WebViewPresenter()
@@ -88,6 +95,16 @@ final class AuthViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "Ок", style: .default))
         present(alert, animated: true)
     }
+
+    private func showMissingAPIKeysAlert() {
+        let alert = UIAlertController(
+            title: "Нужны ключи Unsplash",
+            message: "Укажите accessKey и secretKey в файле Constants.swift",
+            preferredStyle: .alert
+        )
+        alert.addAction(UIAlertAction(title: "Ок", style: .default))
+        present(alert, animated: true)
+    }
 }
 
 extension AuthViewController: WebViewViewControllerDelegate {
@@ -102,6 +119,7 @@ extension AuthViewController: WebViewViewControllerDelegate {
                 switch result {
                 case .success(let token):
                     self.tokenStorage.token = token
+                    UIBlockingProgressHUD.dismiss()
                     self.delegate?.authViewControllerDidAuthenticate(self)
                 case .failure(let error):
                     UIBlockingProgressHUD.dismiss()

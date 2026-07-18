@@ -16,6 +16,11 @@ final class WebViewPresenter: WebViewPresenterProtocol {
     }
 
     func viewDidLoad() {
+        guard Constants.areAPIKeysConfigured else {
+            print("[WebViewPresenter] Unsplash API keys are not configured")
+            return
+        }
+
         guard let request = authHelper.authRequest() else {
             print("[WebViewPresenter] Failed to create auth request")
             return

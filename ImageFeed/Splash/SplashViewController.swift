@@ -69,6 +69,8 @@ final class SplashViewController: UIViewController {
             case .failure(let error):
                 UIBlockingProgressHUD.dismiss()
                 print("[SplashViewController] Failed to fetch profile: \(error.localizedDescription)")
+                self.tokenStorage.clearToken()
+                self.profileService.clearProfile()
                 self.showProfileErrorAlert()
             }
         }
@@ -99,7 +101,9 @@ final class SplashViewController: UIViewController {
             message: "Не удалось войти в систему",
             preferredStyle: .alert
         )
-        alert.addAction(UIAlertAction(title: "Ок", style: .default))
+        alert.addAction(UIAlertAction(title: "Ок", style: .default) { [weak self] _ in
+            self?.showAuthFlow()
+        })
         present(alert, animated: true)
     }
 }
