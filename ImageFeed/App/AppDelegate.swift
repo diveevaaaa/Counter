@@ -1,4 +1,5 @@
 import UIKit
+import ProgressHUD
 
 @main
 final class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -6,7 +7,10 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
     ) -> Bool {
-        true
+        ProgressHUD.animationType = .activityIndicator
+        ProgressHUD.colorHUD = .ypBlack
+        ProgressHUD.colorAnimation = .ypGray
+        return true
     }
 
     func application(

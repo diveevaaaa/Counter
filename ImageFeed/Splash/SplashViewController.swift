@@ -97,15 +97,9 @@ final class SplashViewController: UIViewController {
     }
 
     private func showProfileErrorAlert() {
-        let alert = UIAlertController(
-            title: "Что-то пошло не так(",
-            message: "Не удалось войти в систему",
-            preferredStyle: .alert
-        )
-        alert.addAction(UIAlertAction(title: "Ок", style: .default) { [weak self] _ in
+        AlertPresenter.showLoginError(on: self) { [weak self] in
             self?.showAuthFlow()
-        })
-        present(alert, animated: true)
+        }
     }
 }
 
