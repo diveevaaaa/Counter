@@ -31,6 +31,13 @@
 		100000000000000000000023 /* WebViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000025 /* WebViewViewController.swift */; };
 		100000000000000000000024 /* WebViewViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000026 /* WebViewViewControllerDelegate.swift */; };
 		100000000000000000000025 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000027 /* SplashViewController.swift */; };
+		100000000000000000000026 /* URLSession+ObjectTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000028 /* URLSession+ObjectTask.swift */; };
+		100000000000000000000027 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000029 /* Profile.swift */; };
+		100000000000000000000028 /* UserResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000030 /* UserResult.swift */; };
+		100000000000000000000029 /* ProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000031 /* ProfileService.swift */; };
+		100000000000000000000030 /* ProfileImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000032 /* ProfileImageService.swift */; };
+		100000000000000000000031 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 300000000000000000000003 /* Kingfisher */; };
+		100000000000000000000032 /* SwiftKeychainWrapper in Frameworks */ = {isa = PBXBuildFile; productRef = 300000000000000000000004 /* SwiftKeychainWrapper */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +67,11 @@
 		200000000000000000000025 /* WebViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewViewController.swift; sourceTree = "<group>"; };
 		200000000000000000000026 /* WebViewViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewViewControllerDelegate.swift; sourceTree = "<group>"; };
 		200000000000000000000027 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		200000000000000000000028 /* URLSession+ObjectTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+ObjectTask.swift"; sourceTree = "<group>"; };
+		200000000000000000000029 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		200000000000000000000030 /* UserResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserResult.swift; sourceTree = "<group>"; };
+		200000000000000000000031 /* ProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileService.swift; sourceTree = "<group>"; };
+		200000000000000000000032 /* ProfileImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +79,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				100000000000000000000031 /* Kingfisher in Frameworks */,
+				100000000000000000000032 /* SwiftKeychainWrapper in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,6 +146,8 @@
 			children = (
 				200000000000000000000018 /* OAuth2Service.swift */,
 				200000000000000000000019 /* OAuth2TokenStorage.swift */,
+				200000000000000000000031 /* ProfileService.swift */,
+				200000000000000000000032 /* ProfileImageService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -141,6 +157,7 @@
 			children = (
 				200000000000000000000016 /* Constants.swift */,
 				200000000000000000000020 /* UIBlockingProgressHUD.swift */,
+				200000000000000000000028 /* URLSession+ObjectTask.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -161,6 +178,8 @@
 			children = (
 				200000000000000000000005 /* Photo.swift */,
 				200000000000000000000017 /* OAuthTokenResponseBody.swift */,
+				200000000000000000000029 /* Profile.swift */,
+				200000000000000000000030 /* UserResult.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -217,6 +236,10 @@
 			dependencies = (
 			);
 			name = ImageFeed;
+			packageProductDependencies = (
+				300000000000000000000003 /* Kingfisher */,
+				300000000000000000000004 /* SwiftKeychainWrapper */,
+			);
 			productName = ImageFeed;
 			productReference = 200000000000000000000012 /* ImageFeed.app */;
 			productType = "com.apple.product-type.application";
@@ -245,6 +268,10 @@
 				Base,
 			);
 			mainGroup = 400000000000000000000001;
+			packageReferences = (
+				300000000000000000000001 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				300000000000000000000002 /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */,
+			);
 			productRefGroup = 400000000000000000000002 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -293,6 +320,11 @@
 				100000000000000000000023 /* WebViewViewController.swift in Sources */,
 				100000000000000000000024 /* WebViewViewControllerDelegate.swift in Sources */,
 				100000000000000000000025 /* SplashViewController.swift in Sources */,
+				100000000000000000000026 /* URLSession+ObjectTask.swift in Sources */,
+				100000000000000000000027 /* Profile.swift in Sources */,
+				100000000000000000000028 /* UserResult.swift in Sources */,
+				100000000000000000000029 /* ProfileService.swift in Sources */,
+				100000000000000000000030 /* ProfileImageService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -486,6 +518,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		300000000000000000000001 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.2.0;
+			};
+		};
+		300000000000000000000002 /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jrendel/SwiftKeychainWrapper";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		300000000000000000000003 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 300000000000000000000001 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+		300000000000000000000004 /* SwiftKeychainWrapper */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 300000000000000000000002 /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */;
+			productName = SwiftKeychainWrapper;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 600000000000000000000001 /* Project object */;
 }

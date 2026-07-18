@@ -1,4 +1,5 @@
 import UIKit
+import Kingfisher
 
 final class ProfileViewController: UIViewController {
     @IBOutlet private var avatarImageView: UIImageView!
@@ -7,11 +8,14 @@ final class ProfileViewController: UIViewController {
     @IBOutlet private var descriptionLabel: UILabel!
     @IBOutlet private var logoutButton: UIButton!
 
+    private let profileService = ProfileService.shared
+    private let profileImageService = ProfileImageService.shared
+    private var profileImageServiceObserver: NSObjectProtocol?
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         view.backgroundColor = .ypBlack
-        avatarImageView.image = UIImage(named: "avatarPhoto")
         avatarImageView.contentMode = .scaleAspectFill
         avatarImageView.layer.cornerRadius = 35
         avatarImageView.clipsToBounds = true
@@ -25,6 +29,16 @@ final class ProfileViewController: UIViewController {
         descriptionLabel.font = .systemFont(ofSize: 13, weight: .regular)
         descriptionLabel.textColor = .ypWhite
         descriptionLabel.numberOfLines = 0
+
+        updateProfileDetails()
+        setupObservers()
+        updateAvatar()
+    }
+
+    deinit {
+        if let profileImageServiceObserver {
+            NotificationCenter.default.removeObserver(profileImageServiceObserver)
+        }
     }
 
     @IBAction
@@ -43,8 +57,45 @@ final class ProfileViewController: UIViewController {
         present(alert, animated: true)
     }
 
+    private func setupObservers() {
+        profileImageServiceObserver = NotificationCenter.default.addObserver(
+            forName: ProfileImageService.didChangeNotification,
+            object: nil,
+            queue: .main
+        ) { [weak self] _ in
+            self?.updateAvatar()
+        }
+    }
+
+    private func updateProfileDetails() {
+        guard let profile = profileService.profile else { return }
+
+        nameLabel.text = profile.name
+        loginNameLabel.text = profile.loginName
+        descriptionLabel.text = profile.bio
+    }
+
+    private func updateAvatar() {
+        guard let urlString = profileImageService.avatarURL,
+              let url = URL(string: urlString) else {
+            avatarImageView.image = UIImage(named: "avatarPlaceholder")
+            return
+        }
+
+        let placeholder = UIImage(named: "avatarPlaceholder")
+        let processor = RoundCornerImageProcessor(cornerRadius: 35)
+        avatarImageView.kf.indicatorType = .activity
+        avatarImageView.kf.setImage(
+            with: url,
+            placeholder: placeholder,
+            options: [.processor(processor), .scaleFactor(UIScreen.main.scale)]
+        )
+    }
+
     private func performLogout() {
         OAuth2TokenStorage.shared.clearToken()
+        profileService.clearProfile()
+        profileImageService.clearProfileImage()
 
         guard let window = view.window else {
             print("[ProfileViewController] Failed to get window for logout")

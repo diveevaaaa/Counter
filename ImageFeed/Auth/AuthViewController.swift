@@ -41,6 +41,8 @@ final class AuthViewController: UIViewController {
 
     @objc
     private func didTapLoginButton() {
+        guard !UIBlockingProgressHUD.isBlocking else { return }
+
         let webViewViewController = WebViewViewController()
         let presenter = WebViewPresenter()
         webViewViewController.presenter = presenter
@@ -94,17 +96,16 @@ extension AuthViewController: WebViewViewControllerDelegate {
             guard let self else { return }
 
             UIBlockingProgressHUD.show()
-            self.oauth2Service.fetchAuthToken(code: code) { [weak self] result in
+            self.oauth2Service.fetchOAuthToken(code: code) { [weak self] result in
                 guard let self else { return }
 
                 switch result {
                 case .success(let token):
                     self.tokenStorage.token = token
-                    UIBlockingProgressHUD.dismiss()
                     self.delegate?.authViewControllerDidAuthenticate(self)
                 case .failure(let error):
                     UIBlockingProgressHUD.dismiss()
-                    print("[AuthViewController] Failed to fetch auth token: \(error.localizedDescription)")
+                    print("[AuthViewController] Failed to fetch OAuth token: \(error.localizedDescription)")
                     self.showAuthErrorAlert()
                 }
             }

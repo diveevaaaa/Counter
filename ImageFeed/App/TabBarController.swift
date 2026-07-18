@@ -1,11 +1,20 @@
 import UIKit
 
 final class TabBarController: UITabBarController {
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        setupViewControllers()
+        setupAppearance()
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        if viewControllers?.isEmpty != false {
+            setupViewControllers()
+        }
+
         setupAppearance()
-        setupViewControllers()
     }
 
     private func setupAppearance() {

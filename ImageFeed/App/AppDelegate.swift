@@ -14,11 +14,11 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
         configurationForConnecting connectingSceneSession: UISceneSession,
         options: UIScene.ConnectionOptions
     ) -> UISceneConfiguration {
-        let configuration = UISceneConfiguration(
+        let sceneConfiguration = UISceneConfiguration(
             name: "Default Configuration",
             sessionRole: connectingSceneSession.role
         )
-        configuration.delegateClass = SceneDelegate.self
-        return configuration
+        sceneConfiguration.delegateClass = SceneDelegate.self
+        return sceneConfiguration
     }
 }
