@@ -10,5 +10,20 @@ enum Constants {
     static let unsplashAuthorizeURLString = "https://unsplash.com/oauth/authorize"
     static let unsplashTokenURLString = "https://unsplash.com/oauth/token"
     static let authNativePath = "/oauth/authorize/native"
-    static let bearerTokenStorageKey = "bearerToken"
+
+    enum Storage {
+        static let accessToken = "bearerToken"
+    }
+
+    enum API {
+        static let authorizationHeader = "Authorization"
+        static let bearer = "Bearer "
+        static let mePath = "/me"
+        static let usersPath = "/users"
+        static let authorizationCode = "authorization_code"
+    }
+
+    enum Notifications {
+        static let profileImageServiceDidChange = "ProfileImageServiceDidChangeNotification"
+    }
 }
