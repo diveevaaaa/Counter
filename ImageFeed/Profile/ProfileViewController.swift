@@ -93,12 +93,14 @@ final class ProfileViewController: UIViewController {
     }
 
     private func performLogout() {
-        OAuth2TokenStorage.shared.clearToken()
+        OAuth2TokenStorage.shared.token = nil
         profileService.clearProfile()
         profileImageService.clearProfileImage()
+        ImagesListService.shared.clearImagesList()
+        HTTPCookieStorage.shared.removeCookies(since: .distantPast)
 
         guard let window = view.window else {
-            print("[ProfileViewController] Failed to get window for logout")
+            print("[ProfileViewController.performLogout]: urlSessionError window is nil")
             return
         }
 

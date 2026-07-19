@@ -1,20 +1,14 @@
 import UIKit
+import Kingfisher
 
 final class SingleImageViewController: UIViewController {
     @IBOutlet var scrollView: UIScrollView!
     @IBOutlet private var imageView: UIImageView!
 
+    var largeImageURL: URL?
+
     private var defaultFillScale: CGFloat = 1
     private var isImageConfigured = false
-
-    var image: UIImage? {
-        didSet {
-            isImageConfigured = false
-            guard isViewLoaded else { return }
-            imageView.image = image
-            configureImageViewIfNeeded()
-        }
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,8 +20,7 @@ final class SingleImageViewController: UIViewController {
         scrollView.bouncesZoom = true
         imageView.contentMode = .scaleAspectFill
 
-        imageView.image = image
-        configureImageViewIfNeeded()
+        loadImage()
     }
 
     override func viewDidLayoutSubviews() {
@@ -42,7 +35,7 @@ final class SingleImageViewController: UIViewController {
 
     @IBAction
     func didTapShareButton(_ sender: UIButton) {
-        guard let image else { return }
+        guard let image = imageView.image else { return }
 
         let shareController = UIActivityViewController(
             activityItems: [image],
@@ -50,6 +43,17 @@ final class SingleImageViewController: UIViewController {
         )
 
         present(shareController, animated: true)
+    }
+
+    private func loadImage() {
+        guard let largeImageURL else { return }
+
+        UIBlockingProgressHUD.show()
+        imageView.kf.setImage(with: largeImageURL) { [weak self] _ in
+            UIBlockingProgressHUD.dismiss()
+            self?.isImageConfigured = false
+            self?.configureImageViewIfNeeded()
+        }
     }
 
     private func configureImageViewIfNeeded() {
