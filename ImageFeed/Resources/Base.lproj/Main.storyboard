@@ -170,10 +170,100 @@
             </objects>
             <point key="canvasLocation" x="900" y="4"/>
         </scene>
+        <!--Images List View Controller-->
+        <scene sceneID="images-list-scene">
+            <objects>
+                <viewController storyboardIdentifier="ImagesListViewController" id="images-list-view-controller" customClass="ImagesListViewController" customModule="ImageFeed" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="images-list-view">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="images-list-table-view">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                <color key="backgroundColor" name="ypBlack"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ImagesListCell" rowHeight="232" id="images-list-cell" customClass="ImagesListCell" customModule="ImageFeed" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="232"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="images-list-cell" id="images-list-cell-content">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="232"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cell-image-view">
+                                                    <rect key="frame" x="16" y="4" width="361" height="224"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <real key="value" value="16"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="27 августа 2022" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cell-date-label">
+                                                    <rect key="frame" x="24" y="204" width="100" height="16"/>
+                                                    <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="13"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cell-like-button">
+                                                    <rect key="frame" x="333" y="12" width="36" height="36"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="36" id="like-width"/>
+                                                        <constraint firstAttribute="height" constant="36" id="like-height"/>
+                                                    </constraints>
+                                                    <state key="normal" image="likeNoActive"/>
+                                                    <connections>
+                                                        <action selector="imageListCellDidTapLike:" destination="images-list-view-controller" eventType="touchUpInside" id="like-action"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="cell-image-view" firstAttribute="top" secondItem="images-list-cell-content" secondAttribute="top" constant="4" id="image-top"/>
+                                                <constraint firstItem="cell-image-view" firstAttribute="leading" secondItem="images-list-cell-content" secondAttribute="leading" constant="16" id="image-leading"/>
+                                                <constraint firstAttribute="trailing" secondItem="cell-image-view" secondAttribute="trailing" constant="16" id="image-trailing"/>
+                                                <constraint firstAttribute="bottom" secondItem="cell-image-view" secondAttribute="bottom" constant="4" id="image-bottom"/>
+                                                <constraint firstItem="cell-image-view" firstAttribute="height" constant="224" id="image-height"/>
+                                                <constraint firstItem="cell-date-label" firstAttribute="leading" secondItem="cell-image-view" secondAttribute="leading" constant="8" id="date-leading"/>
+                                                <constraint firstItem="cell-date-label" firstAttribute="bottom" secondItem="cell-image-view" secondAttribute="bottom" constant="-12" id="date-bottom"/>
+                                                <constraint firstItem="cell-like-button" firstAttribute="top" secondItem="cell-image-view" secondAttribute="top" constant="8" id="like-top"/>
+                                                <constraint firstItem="cell-like-button" firstAttribute="trailing" secondItem="cell-image-view" secondAttribute="trailing" constant="-8" id="like-trailing"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="cellImageView" destination="cell-image-view" id="cell-image-outlet"/>
+                                            <outlet property="dateLabel" destination="cell-date-label" id="cell-date-outlet"/>
+                                            <outlet property="likeButton" destination="cell-like-button" id="cell-like-outlet"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="images-list-view-controller" id="table-data-source"/>
+                                    <outlet property="delegate" destination="images-list-view-controller" id="table-delegate"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="images-list-safe-area"/>
+                        <color key="backgroundColor" name="ypBlack"/>
+                        <constraints>
+                            <constraint firstItem="images-list-table-view" firstAttribute="top" secondItem="images-list-safe-area" secondAttribute="top" id="table-top"/>
+                            <constraint firstItem="images-list-table-view" firstAttribute="leading" secondItem="images-list-safe-area" secondAttribute="leading" id="table-leading"/>
+                            <constraint firstItem="images-list-safe-area" firstAttribute="trailing" secondItem="images-list-table-view" secondAttribute="trailing" id="table-trailing"/>
+                            <constraint firstItem="images-list-safe-area" firstAttribute="bottom" secondItem="images-list-table-view" secondAttribute="bottom" id="table-bottom"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="images-list-table-view" id="table-view-outlet"/>
+                        <segue destination="single-image-view-controller" kind="presentation" identifier="ShowSingleImage" modalPresentationStyle="fullScreen" id="show-single-image-segue"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="images-list-first-responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-300" y="4"/>
+        </scene>
     </scenes>
     <resources>
         <image name="avatarPhoto" width="70" height="70"/>
         <image name="logoutIcon" width="44" height="44"/>
+        <image name="likeNoActive" width="36" height="36"/>
         <image name="nav_back_button" width="48" height="48"/>
         <image name="share_button" width="50" height="50"/>
         <namedColor name="ypBlack">
