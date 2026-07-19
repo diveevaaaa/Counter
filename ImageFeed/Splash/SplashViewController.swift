@@ -69,6 +69,8 @@ final class SplashViewController: UIViewController {
             case .failure(let error):
                 UIBlockingProgressHUD.dismiss()
                 print("[SplashViewController] Failed to fetch profile: \(error.localizedDescription)")
+                self.tokenStorage.clearToken()
+                self.profileService.clearProfile()
                 self.showProfileErrorAlert()
             }
         }
@@ -89,18 +91,15 @@ final class SplashViewController: UIViewController {
             return
         }
 
-        let tabBarController = TabBarController()
+        let storyboard = UIStoryboard(name: "Main", bundle: .main)
+        let tabBarController = storyboard.instantiateViewController(withIdentifier: "TabBarController")
         window.rootViewController = tabBarController
     }
 
     private func showProfileErrorAlert() {
-        let alert = UIAlertController(
-            title: "Что-то пошло не так(",
-            message: "Не удалось войти в систему",
-            preferredStyle: .alert
-        )
-        alert.addAction(UIAlertAction(title: "Ок", style: .default))
-        present(alert, animated: true)
+        AlertPresenter.showLoginError(on: self) { [weak self] in
+            self?.showAuthFlow()
+        }
     }
 }
 

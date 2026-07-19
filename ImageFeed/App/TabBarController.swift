@@ -7,16 +7,6 @@ final class TabBarController: UITabBarController {
         setupAppearance()
     }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        if viewControllers?.isEmpty != false {
-            setupViewControllers()
-        }
-
-        setupAppearance()
-    }
-
     private func setupAppearance() {
         let appearance = UITabBarAppearance()
         appearance.configureWithOpaqueBackground()

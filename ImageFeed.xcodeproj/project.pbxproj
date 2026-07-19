@@ -36,8 +36,10 @@
 		100000000000000000000028 /* UserResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000030 /* UserResult.swift */; };
 		100000000000000000000029 /* ProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000031 /* ProfileService.swift */; };
 		100000000000000000000030 /* ProfileImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000032 /* ProfileImageService.swift */; };
-		100000000000000000000031 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 300000000000000000000003 /* Kingfisher */; };
-		100000000000000000000032 /* SwiftKeychainWrapper in Frameworks */ = {isa = PBXBuildFile; productRef = 300000000000000000000004 /* SwiftKeychainWrapper */; };
+		100000000000000000000031 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 320000000000000000000001 /* Kingfisher */; };
+		100000000000000000000032 /* SwiftKeychainWrapper in Frameworks */ = {isa = PBXBuildFile; productRef = 320000000000000000000002 /* SwiftKeychainWrapper */; };
+		100000000000000000000033 /* AlertPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000033 /* AlertPresenter.swift */; };
+		100000000000000000000034 /* ProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 320000000000000000000003 /* ProgressHUD */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +74,7 @@
 		200000000000000000000030 /* UserResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserResult.swift; sourceTree = "<group>"; };
 		200000000000000000000031 /* ProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileService.swift; sourceTree = "<group>"; };
 		200000000000000000000032 /* ProfileImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageService.swift; sourceTree = "<group>"; };
+		200000000000000000000033 /* AlertPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +84,7 @@
 			files = (
 				100000000000000000000031 /* Kingfisher in Frameworks */,
 				100000000000000000000032 /* SwiftKeychainWrapper in Frameworks */,
+				100000000000000000000034 /* ProgressHUD in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -156,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				200000000000000000000016 /* Constants.swift */,
+				200000000000000000000033 /* AlertPresenter.swift */,
 				200000000000000000000020 /* UIBlockingProgressHUD.swift */,
 				200000000000000000000028 /* URLSession+ObjectTask.swift */,
 			);
@@ -237,8 +242,9 @@
 			);
 			name = ImageFeed;
 			packageProductDependencies = (
-				300000000000000000000003 /* Kingfisher */,
-				300000000000000000000004 /* SwiftKeychainWrapper */,
+				320000000000000000000001 /* Kingfisher */,
+				320000000000000000000002 /* SwiftKeychainWrapper */,
+				320000000000000000000003 /* ProgressHUD */,
 			);
 			productName = ImageFeed;
 			productReference = 200000000000000000000012 /* ImageFeed.app */;
@@ -269,8 +275,9 @@
 			);
 			mainGroup = 400000000000000000000001;
 			packageReferences = (
-				300000000000000000000001 /* XCRemoteSwiftPackageReference "Kingfisher" */,
-				300000000000000000000002 /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */,
+				310000000000000000000001 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				310000000000000000000002 /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */,
+				310000000000000000000003 /* XCRemoteSwiftPackageReference "ProgressHUD" */,
 			);
 			productRefGroup = 400000000000000000000002 /* Products */;
 			projectDirPath = "";
@@ -313,6 +320,7 @@
 				100000000000000000000016 /* OAuth2Service.swift in Sources */,
 				100000000000000000000017 /* OAuth2TokenStorage.swift in Sources */,
 				100000000000000000000018 /* UIBlockingProgressHUD.swift in Sources */,
+				100000000000000000000033 /* AlertPresenter.swift in Sources */,
 				100000000000000000000019 /* AuthHelper.swift in Sources */,
 				100000000000000000000020 /* AuthViewController.swift in Sources */,
 				100000000000000000000021 /* AuthViewControllerDelegate.swift in Sources */,
@@ -520,7 +528,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		300000000000000000000001 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+		310000000000000000000001 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher";
 			requirement = {
@@ -528,7 +536,7 @@
 				minimumVersion = 8.2.0;
 			};
 		};
-		300000000000000000000002 /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */ = {
+		310000000000000000000002 /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/jrendel/SwiftKeychainWrapper";
 			requirement = {
@@ -536,18 +544,31 @@
 				minimumVersion = 4.0.1;
 			};
 		};
+		310000000000000000000003 /* XCRemoteSwiftPackageReference "ProgressHUD" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/relatedcode/ProgressHUD";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 14.1.3;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		300000000000000000000003 /* Kingfisher */ = {
+		320000000000000000000001 /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 300000000000000000000001 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			package = 310000000000000000000001 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
 		};
-		300000000000000000000004 /* SwiftKeychainWrapper */ = {
+		320000000000000000000002 /* SwiftKeychainWrapper */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 300000000000000000000002 /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */;
+			package = 310000000000000000000002 /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */;
 			productName = SwiftKeychainWrapper;
+		};
+		320000000000000000000003 /* ProgressHUD */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 310000000000000000000003 /* XCRemoteSwiftPackageReference "ProgressHUD" */;
+			productName = ProgressHUD;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -80,13 +80,7 @@ final class AuthViewController: UIViewController {
     }
 
     private func showAuthErrorAlert() {
-        let alert = UIAlertController(
-            title: "Что-то пошло не так(",
-            message: "Не удалось войти в систему",
-            preferredStyle: .alert
-        )
-        alert.addAction(UIAlertAction(title: "Ок", style: .default))
-        present(alert, animated: true)
+        AlertPresenter.showLoginError(on: self)
     }
 }
 
@@ -102,6 +96,7 @@ extension AuthViewController: WebViewViewControllerDelegate {
                 switch result {
                 case .success(let token):
                     self.tokenStorage.token = token
+                    UIBlockingProgressHUD.dismiss()
                     self.delegate?.authViewControllerDidAuthenticate(self)
                 case .failure(let error):
                     UIBlockingProgressHUD.dismiss()
