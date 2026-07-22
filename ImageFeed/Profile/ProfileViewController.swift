@@ -15,6 +15,10 @@ extension ProfileService: ProfileServiceProtocol {}
 extension ProfileImageService: ProfileImageServiceProtocol {}
 
 final class ProfileViewController: UIViewController {
+    private enum Text {
+        static let defaultDescription = "Hello, World!"
+    }
+
     @IBOutlet private var avatarImageView: UIImageView!
     @IBOutlet private var nameLabel: UILabel!
     @IBOutlet private var loginNameLabel: UILabel!
@@ -92,7 +96,12 @@ final class ProfileViewController: UIViewController {
 
         nameLabel.text = profile.name
         loginNameLabel.text = profile.loginName
-        descriptionLabel.text = profile.bio
+
+        if let bio = profile.bio, !bio.isEmpty {
+            descriptionLabel.text = bio
+        } else {
+            descriptionLabel.text = Text.defaultDescription
+        }
     }
 
     private func updateAvatar() {

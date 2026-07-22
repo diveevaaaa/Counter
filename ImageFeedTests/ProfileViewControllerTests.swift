@@ -32,6 +32,21 @@ final class ProfileViewControllerTests: XCTestCase {
         XCTAssertNotNil(logoutButton.image(for: .normal))
     }
 
+    func testViewDidLoadShowsHelloWorldWhenBioIsMissing() throws {
+        let profile = Profile(
+            username: "ekaterina_nov",
+            name: "Екатерина Новикова",
+            loginName: "@ekaterina_nov",
+            bio: nil
+        )
+        let viewController = makeViewController(profile: profile)
+
+        viewController.loadViewIfNeeded()
+
+        let descriptionLabel = try XCTUnwrap(viewController.view.label(withIdentifier: "ProfileDescriptionLabel"))
+        XCTAssertEqual(descriptionLabel.text, "Hello, World!")
+    }
+
     private func makeViewController(profile: Profile?) -> ProfileViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle(for: ProfileViewController.self))
         let viewController = storyboard.instantiateViewController(
