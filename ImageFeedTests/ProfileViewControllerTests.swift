@@ -1,4 +1,5 @@
 import XCTest
+import UIKit
 @testable import ImageFeed
 
 final class ProfileViewControllerTests: XCTestCase {
