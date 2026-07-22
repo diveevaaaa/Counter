@@ -1,34 +1,58 @@
 import UIKit
 import Kingfisher
 
+protocol ProfileServiceProtocol: AnyObject {
+    var profile: Profile? { get }
+    func clearProfile()
+}
+
+protocol ProfileImageServiceProtocol: AnyObject {
+    var avatarURL: String? { get }
+    func clearProfileImage()
+}
+
+extension ProfileService: ProfileServiceProtocol {}
+extension ProfileImageService: ProfileImageServiceProtocol {}
+
 final class ProfileViewController: UIViewController {
+    private enum Text {
+        static let defaultDescription = "Hello, World!"
+    }
+
     @IBOutlet private var avatarImageView: UIImageView!
     @IBOutlet private var nameLabel: UILabel!
     @IBOutlet private var loginNameLabel: UILabel!
     @IBOutlet private var descriptionLabel: UILabel!
     @IBOutlet private var logoutButton: UIButton!
 
-    private let profileService = ProfileService.shared
-    private let profileImageService = ProfileImageService.shared
+    var profileService: ProfileServiceProtocol = ProfileService.shared
+    var profileImageService: ProfileImageServiceProtocol = ProfileImageService.shared
     private var profileImageServiceObserver: NSObjectProtocol?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        view.accessibilityIdentifier = "ProfileView"
         view.backgroundColor = .ypBlack
+        avatarImageView.accessibilityIdentifier = "ProfileAvatarImageView"
         avatarImageView.contentMode = .scaleAspectFill
         avatarImageView.layer.cornerRadius = 35
         avatarImageView.clipsToBounds = true
 
+        nameLabel.accessibilityIdentifier = "ProfileNameLabel"
         nameLabel.font = .systemFont(ofSize: 23, weight: .bold)
         nameLabel.textColor = .ypWhite
 
+        loginNameLabel.accessibilityIdentifier = "ProfileLoginNameLabel"
         loginNameLabel.font = .systemFont(ofSize: 13, weight: .regular)
         loginNameLabel.textColor = .ypGray
 
+        descriptionLabel.accessibilityIdentifier = "ProfileDescriptionLabel"
         descriptionLabel.font = .systemFont(ofSize: 13, weight: .regular)
         descriptionLabel.textColor = .ypWhite
         descriptionLabel.numberOfLines = 0
+
+        logoutButton.accessibilityIdentifier = "ProfileLogoutButton"
 
         updateProfileDetails()
         setupObservers()
@@ -72,7 +96,12 @@ final class ProfileViewController: UIViewController {
 
         nameLabel.text = profile.name
         loginNameLabel.text = profile.loginName
-        descriptionLabel.text = profile.bio
+
+        if let bio = profile.bio, !bio.isEmpty {
+            descriptionLabel.text = bio
+        } else {
+            descriptionLabel.text = Text.defaultDescription
+        }
     }
 
     private func updateAvatar() {

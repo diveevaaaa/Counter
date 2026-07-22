@@ -16,10 +16,11 @@ final class WebViewViewController: UIViewController {
 
     private lazy var webView: WKWebView = {
         let configuration = WKWebViewConfiguration()
-        configuration.defaultWebpagePreferences.allowsContentJavaScript = true
+        configuration.preferences.javaScriptEnabled = true
 
         let webView = WKWebView(frame: .zero, configuration: configuration)
         webView.translatesAutoresizingMaskIntoConstraints = false
+        webView.accessibilityIdentifier = "AuthWebView"
         webView.backgroundColor = .ypWhite
         webView.isOpaque = false
         webView.scrollView.backgroundColor = .ypWhite
@@ -36,6 +37,7 @@ final class WebViewViewController: UIViewController {
     private lazy var progressView: UIProgressView = {
         let progressView = UIProgressView()
         progressView.translatesAutoresizingMaskIntoConstraints = false
+        progressView.accessibilityIdentifier = "AuthProgressView"
         progressView.progressTintColor = .ypBlack
         progressView.trackTintColor = .clear
         return progressView
@@ -44,6 +46,7 @@ final class WebViewViewController: UIViewController {
     private lazy var backButton: UIButton = {
         let button = UIButton(type: .custom)
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.accessibilityIdentifier = "AuthBackButton"
         let image = UIImage(named: "BackwardBlack")?.withRenderingMode(.alwaysOriginal)
         button.setImage(image, for: .normal)
         button.contentHorizontalAlignment = .left

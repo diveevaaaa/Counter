@@ -162,8 +162,10 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="backButton" destination="single-back-button" id="single-back-button-outlet"/>
                         <outlet property="imageView" destination="single-image-view-inner" id="image-outlet"/>
                         <outlet property="scrollView" destination="single-scroll-view" id="scroll-outlet"/>
+                        <outlet property="shareButton" destination="single-share-button" id="single-share-button-outlet"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="single-first-responder" sceneMemberID="firstResponder"/>

@@ -13,6 +13,10 @@ final class ProfileService {
         profile = nil
     }
 
+    func setProfile(_ profile: Profile) {
+        self.profile = profile
+    }
+
     func fetchProfile(token: String, completion: @escaping (Result<Profile, Error>) -> Void) {
         assert(Thread.isMainThread)
 

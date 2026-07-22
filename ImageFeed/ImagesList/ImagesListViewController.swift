@@ -1,9 +1,10 @@
 import UIKit
 
 final class ImagesListViewController: UIViewController {
-    private let tableView: UITableView = {
+    let tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .plain)
         tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.accessibilityIdentifier = "ImagesListTableView"
         tableView.backgroundColor = .ypBlack
         tableView.separatorStyle = .none
         tableView.rowHeight = UITableView.automaticDimension
@@ -12,7 +13,7 @@ final class ImagesListViewController: UIViewController {
         return tableView
     }()
 
-    private var photos = Photo.makeMockPhotos()
+    private(set) var photos = Photo.makeMockPhotos()
     private lazy var dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.locale = Locale(identifier: "ru_RU")
@@ -23,6 +24,7 @@ final class ImagesListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        view.accessibilityIdentifier = "ImagesListView"
         view.backgroundColor = .ypBlack
         setupTableView()
         setupConstraints()
@@ -90,9 +92,16 @@ extension ImagesListViewController: UITableViewDelegate {
 extension ImagesListViewController: ImagesListCellDelegate {
     func imagesListCellDidTapLike(_ cell: ImagesListCell) {
         guard let indexPath = tableView.indexPath(for: cell) else { return }
+        toggleLike(at: indexPath)
+    }
+
+    func toggleLike(at indexPath: IndexPath) {
+        guard photos.indices.contains(indexPath.row) else { return }
 
         let photo = photos[indexPath.row]
         photos[indexPath.row] = photo.with(isLiked: !photo.isLiked)
-        cell.updateLikeState(isLiked: photos[indexPath.row].isLiked)
+        if let cell = tableView.cellForRow(at: indexPath) as? ImagesListCell {
+            cell.updateLikeState(isLiked: photos[indexPath.row].isLiked)
+        }
     }
 }

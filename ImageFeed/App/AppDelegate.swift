@@ -7,6 +7,9 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
     ) -> Bool {
+#if DEBUG
+        UITestingSupport.resetStateForLaunchIfNeeded()
+#endif
         ProgressHUD.animationType = .activityIndicator
         ProgressHUD.colorHUD = .ypBlack
         ProgressHUD.colorAnimation = .ypGray

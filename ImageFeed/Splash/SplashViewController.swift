@@ -39,6 +39,13 @@ final class SplashViewController: UIViewController {
     }
 
     private func switchToAppropriateFlow() {
+#if DEBUG
+        if UITestingSupport.consumeAuthenticatedLaunchIfNeeded() {
+            switchToTabBarController()
+            return
+        }
+#endif
+
         guard let token = tokenStorage.token else {
             showAuthFlow()
             return

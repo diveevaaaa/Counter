@@ -40,7 +40,30 @@
 		100000000000000000000032 /* SwiftKeychainWrapper in Frameworks */ = {isa = PBXBuildFile; productRef = 320000000000000000000002 /* SwiftKeychainWrapper */; };
 		100000000000000000000033 /* AlertPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000033 /* AlertPresenter.swift */; };
 		100000000000000000000034 /* ProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 320000000000000000000003 /* ProgressHUD */; };
+		100000000000000000000035 /* AuthConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000034 /* AuthConfiguration.swift */; };
+		100000000000000000000036 /* UITestingSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000035 /* UITestingSupport.swift */; };
+		100000000000000000000101 /* WebViewPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000101 /* WebViewPresenterTests.swift */; };
+		100000000000000000000102 /* ProfileViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000102 /* ProfileViewControllerTests.swift */; };
+		100000000000000000000103 /* ImagesListViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000103 /* ImagesListViewControllerTests.swift */; };
+		100000000000000000000104 /* ImageFeedUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000104 /* ImageFeedUITests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		330000000000000000000001 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 600000000000000000000001 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 500000000000000000000001;
+			remoteInfo = ImageFeed;
+		};
+		330000000000000000000002 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 600000000000000000000001 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 500000000000000000000001;
+			remoteInfo = ImageFeed;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		200000000000000000000001 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -75,6 +98,14 @@
 		200000000000000000000031 /* ProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileService.swift; sourceTree = "<group>"; };
 		200000000000000000000032 /* ProfileImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageService.swift; sourceTree = "<group>"; };
 		200000000000000000000033 /* AlertPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPresenter.swift; sourceTree = "<group>"; };
+		200000000000000000000034 /* AuthConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthConfiguration.swift; sourceTree = "<group>"; };
+		200000000000000000000035 /* UITestingSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITestingSupport.swift; sourceTree = "<group>"; };
+		200000000000000000000101 /* WebViewPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewPresenterTests.swift; sourceTree = "<group>"; };
+		200000000000000000000102 /* ProfileViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewControllerTests.swift; sourceTree = "<group>"; };
+		200000000000000000000103 /* ImagesListViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesListViewControllerTests.swift; sourceTree = "<group>"; };
+		200000000000000000000104 /* ImageFeedUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFeedUITests.swift; sourceTree = "<group>"; };
+		200000000000000000000105 /* ImageFeedTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ImageFeedTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		200000000000000000000106 /* ImageFeedUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ImageFeedUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +119,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		300000000000000000000002 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		300000000000000000000003 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -95,6 +140,8 @@
 			isa = PBXGroup;
 			children = (
 				400000000000000000000003 /* ImageFeed */,
+				400000000000000000000014 /* ImageFeedTests */,
+				400000000000000000000015 /* ImageFeedUITests */,
 				400000000000000000000002 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -103,6 +150,8 @@
 			isa = PBXGroup;
 			children = (
 				200000000000000000000012 /* ImageFeed.app */,
+				200000000000000000000105 /* ImageFeedTests.xctest */,
+				200000000000000000000106 /* ImageFeedUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -127,6 +176,7 @@
 		400000000000000000000010 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
+				200000000000000000000034 /* AuthConfiguration.swift */,
 				200000000000000000000021 /* AuthHelper.swift */,
 				200000000000000000000022 /* AuthViewController.swift */,
 				200000000000000000000023 /* AuthViewControllerDelegate.swift */,
@@ -174,6 +224,7 @@
 				200000000000000000000002 /* SceneDelegate.swift */,
 				200000000000000000000004 /* UIColor+Palette.swift */,
 				200000000000000000000015 /* TabBarController.swift */,
+				200000000000000000000035 /* UITestingSupport.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -225,6 +276,24 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		400000000000000000000014 /* ImageFeedTests */ = {
+			isa = PBXGroup;
+			children = (
+				200000000000000000000101 /* WebViewPresenterTests.swift */,
+				200000000000000000000102 /* ProfileViewControllerTests.swift */,
+				200000000000000000000103 /* ImagesListViewControllerTests.swift */,
+			);
+			path = ImageFeedTests;
+			sourceTree = "<group>";
+		};
+		400000000000000000000015 /* ImageFeedUITests */ = {
+			isa = PBXGroup;
+			children = (
+				200000000000000000000104 /* ImageFeedUITests.swift */,
+			);
+			path = ImageFeedUITests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -250,6 +319,42 @@
 			productReference = 200000000000000000000012 /* ImageFeed.app */;
 			productType = "com.apple.product-type.application";
 		};
+		500000000000000000000002 /* ImageFeedTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 900000000000000000000004 /* Build configuration list for PBXNativeTarget "ImageFeedTests" */;
+			buildPhases = (
+				700000000000000000000003 /* Sources */,
+				300000000000000000000002 /* Frameworks */,
+				700000000000000000000005 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				710000000000000000000001 /* PBXTargetDependency */,
+			);
+			name = ImageFeedTests;
+			productName = ImageFeedTests;
+			productReference = 200000000000000000000105 /* ImageFeedTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		500000000000000000000003 /* ImageFeedUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 900000000000000000000005 /* Build configuration list for PBXNativeTarget "ImageFeedUITests" */;
+			buildPhases = (
+				700000000000000000000004 /* Sources */,
+				300000000000000000000003 /* Frameworks */,
+				700000000000000000000006 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				710000000000000000000002 /* PBXTargetDependency */,
+			);
+			name = ImageFeedUITests;
+			productName = ImageFeedUITests;
+			productReference = 200000000000000000000106 /* ImageFeedUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -262,6 +367,14 @@
 				TargetAttributes = {
 					500000000000000000000001 = {
 						CreatedOnToolsVersion = 15.0;
+					};
+					500000000000000000000002 = {
+						CreatedOnToolsVersion = 15.0;
+						TestTargetID = 500000000000000000000001;
+					};
+					500000000000000000000003 = {
+						CreatedOnToolsVersion = 15.0;
+						TestTargetID = 500000000000000000000001;
 					};
 				};
 			};
@@ -284,6 +397,8 @@
 			projectRoot = "";
 			targets = (
 				500000000000000000000001 /* ImageFeed */,
+				500000000000000000000002 /* ImageFeedTests */,
+				500000000000000000000003 /* ImageFeedUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -296,6 +411,20 @@
 				100000000000000000000010 /* LaunchScreen.storyboard in Resources */,
 				100000000000000000000008 /* Main.storyboard in Resources */,
 				100000000000000000000009 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		700000000000000000000005 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		700000000000000000000006 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -315,12 +444,14 @@
 				100000000000000000000011 /* ProfileViewController.swift in Sources */,
 				100000000000000000000012 /* SingleImageViewController.swift in Sources */,
 				100000000000000000000013 /* TabBarController.swift in Sources */,
+				100000000000000000000036 /* UITestingSupport.swift in Sources */,
 				100000000000000000000014 /* Constants.swift in Sources */,
 				100000000000000000000015 /* OAuthTokenResponseBody.swift in Sources */,
 				100000000000000000000016 /* OAuth2Service.swift in Sources */,
 				100000000000000000000017 /* OAuth2TokenStorage.swift in Sources */,
 				100000000000000000000018 /* UIBlockingProgressHUD.swift in Sources */,
 				100000000000000000000033 /* AlertPresenter.swift in Sources */,
+				100000000000000000000035 /* AuthConfiguration.swift in Sources */,
 				100000000000000000000019 /* AuthHelper.swift in Sources */,
 				100000000000000000000020 /* AuthViewController.swift in Sources */,
 				100000000000000000000021 /* AuthViewControllerDelegate.swift in Sources */,
@@ -336,7 +467,38 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		700000000000000000000003 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				100000000000000000000101 /* WebViewPresenterTests.swift in Sources */,
+				100000000000000000000102 /* ProfileViewControllerTests.swift in Sources */,
+				100000000000000000000103 /* ImagesListViewControllerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		700000000000000000000004 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				100000000000000000000104 /* ImageFeedUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		710000000000000000000001 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 500000000000000000000001 /* ImageFeed */;
+			targetProxy = 330000000000000000000001 /* PBXContainerItemProxy */;
+		};
+		710000000000000000000002 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 500000000000000000000001 /* ImageFeed */;
+			targetProxy = 330000000000000000000002 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		800000000000000000000001 /* Debug */ = {
@@ -390,7 +552,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -445,7 +607,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -467,7 +629,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ru.practicum.ImageFeed;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -492,7 +654,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ru.practicum.ImageFeed;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -501,6 +663,96 @@
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		800000000000000000000005 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ru.practicum.ImageFeedTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ImageFeed.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ImageFeed";
+			};
+			name = Debug;
+		};
+		800000000000000000000006 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ru.practicum.ImageFeedTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ImageFeed.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ImageFeed";
+			};
+			name = Release;
+		};
+		800000000000000000000007 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ru.practicum.ImageFeedUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_TARGET_NAME = ImageFeed;
+			};
+			name = Debug;
+		};
+		800000000000000000000008 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ru.practicum.ImageFeedUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_TARGET_NAME = ImageFeed;
 			};
 			name = Release;
 		};
@@ -521,6 +773,24 @@
 			buildConfigurations = (
 				800000000000000000000003 /* Debug */,
 				800000000000000000000004 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		900000000000000000000004 /* Build configuration list for PBXNativeTarget "ImageFeedTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				800000000000000000000005 /* Debug */,
+				800000000000000000000006 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		900000000000000000000005 /* Build configuration list for PBXNativeTarget "ImageFeedUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				800000000000000000000007 /* Debug */,
+				800000000000000000000008 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
