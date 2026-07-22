@@ -5,6 +5,7 @@ protocol WebViewPresenterProtocol: AnyObject {
     func viewDidLoad()
     func didUpdateProgressValue(_ newValue: Double)
     func code(from url: URL) -> String?
+    func shouldHideProgress(for value: Float) -> Bool
 }
 
 final class WebViewPresenter: WebViewPresenterProtocol {
@@ -35,7 +36,7 @@ final class WebViewPresenter: WebViewPresenterProtocol {
         authHelper.code(from: url)
     }
 
-    private func shouldHideProgress(for value: Float) -> Bool {
+    func shouldHideProgress(for value: Float) -> Bool {
         abs(value - 1.0) <= 0.0001
     }
 }

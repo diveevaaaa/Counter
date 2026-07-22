@@ -9,6 +9,7 @@ final class AuthViewController: UIViewController {
     private lazy var logoImageView: UIImageView = {
         let imageView = UIImageView(image: UIImage(named: "Logo_of_Unsplash"))
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.accessibilityIdentifier = "AuthLogoImageView"
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
@@ -16,6 +17,7 @@ final class AuthViewController: UIViewController {
     private lazy var loginButton: UIButton = {
         let button = UIButton(type: .custom)
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.accessibilityIdentifier = "AuthLoginButton"
         button.backgroundColor = .ypWhite
         button.layer.cornerRadius = 16
         button.layer.masksToBounds = true
@@ -30,6 +32,7 @@ final class AuthViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.accessibilityIdentifier = "AuthView"
         view.backgroundColor = .ypBlack
         setupLayout()
     }

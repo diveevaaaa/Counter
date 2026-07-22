@@ -17,6 +17,7 @@ final class ImagesListCell: UITableViewCell {
     private let photoImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.accessibilityIdentifier = "ImagesListCellImageView"
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 16
@@ -26,6 +27,7 @@ final class ImagesListCell: UITableViewCell {
     private let dateLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.accessibilityIdentifier = "ImagesListCellDateLabel"
         label.font = .systemFont(ofSize: 13, weight: .regular)
         label.textColor = .ypWhite
         label.shadowColor = UIColor.black.withAlphaComponent(0.35)
@@ -36,6 +38,7 @@ final class ImagesListCell: UITableViewCell {
     private let likeButton: UIButton = {
         let button = UIButton(type: .custom)
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.accessibilityIdentifier = "ImagesListCellLikeButton"
         button.backgroundColor = .clear
         button.adjustsImageWhenHighlighted = false
         return button
@@ -68,6 +71,7 @@ final class ImagesListCell: UITableViewCell {
     }
 
     func configure(with photo: Photo, dateText: String) {
+        accessibilityIdentifier = "ImagesListCell"
         dateLabel.text = dateText
         photoImageView.image = UIImage(named: "Dogs/\(photo.imageName)") ?? UIImage(named: photo.imageName)
 

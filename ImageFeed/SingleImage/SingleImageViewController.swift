@@ -3,6 +3,8 @@ import UIKit
 final class SingleImageViewController: UIViewController {
     @IBOutlet var scrollView: UIScrollView!
     @IBOutlet private var imageView: UIImageView!
+    @IBOutlet private var backButton: UIButton!
+    @IBOutlet private var shareButton: UIButton!
 
     private var defaultFillScale: CGFloat = 1
     private var isImageConfigured = false
@@ -19,12 +21,17 @@ final class SingleImageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        view.accessibilityIdentifier = "SingleImageView"
         view.backgroundColor = .ypBlack
+        scrollView.accessibilityIdentifier = "SingleImageScrollView"
         scrollView.delegate = self
         scrollView.showsVerticalScrollIndicator = false
         scrollView.showsHorizontalScrollIndicator = false
         scrollView.bouncesZoom = true
+        imageView.accessibilityIdentifier = "SingleImageImageView"
         imageView.contentMode = .scaleAspectFill
+        backButton.accessibilityIdentifier = "SingleImageBackButton"
+        shareButton.accessibilityIdentifier = "SingleImageShareButton"
 
         imageView.image = image
         configureImageViewIfNeeded()

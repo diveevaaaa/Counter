@@ -14,7 +14,9 @@ final class TabBarController: UITabBarController {
         appearance.shadowColor = UIColor.black.withAlphaComponent(0.3)
 
         tabBar.standardAppearance = appearance
-        tabBar.scrollEdgeAppearance = appearance
+        if #available(iOS 15.0, *) {
+            tabBar.scrollEdgeAppearance = appearance
+        }
     }
 
     private func setupViewControllers() {
@@ -29,6 +31,7 @@ final class TabBarController: UITabBarController {
             image: feedInactiveIcon,
             selectedImage: feedActiveIcon
         )
+        imagesListViewController.tabBarItem.accessibilityIdentifier = "ImagesListTab"
 
         let storyboard = UIStoryboard(name: "Main", bundle: .main)
         let profileViewController = storyboard.instantiateViewController(
@@ -39,6 +42,7 @@ final class TabBarController: UITabBarController {
             image: profileInactiveIcon,
             selectedImage: profileActiveIcon
         )
+        profileViewController.tabBarItem.accessibilityIdentifier = "ProfileTab"
 
         viewControllers = [imagesListViewController, profileViewController]
     }
