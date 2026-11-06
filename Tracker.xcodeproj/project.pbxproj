@@ -1,0 +1,526 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B10000000000000000000001 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10000000000000000000001 /* AppDelegate.swift */; };
+		B10000000000000000000002 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10000000000000000000002 /* SceneDelegate.swift */; };
+		B10000000000000000000003 /* UIColor+Palette.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10000000000000000000003 /* UIColor+Palette.swift */; };
+		B10000000000000000000004 /* TrackerPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10000000000000000000004 /* TrackerPalette.swift */; };
+		B10000000000000000000005 /* RussianPlural.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10000000000000000000005 /* RussianPlural.swift */; };
+		B10000000000000000000006 /* UINavigationBar+Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10000000000000000000006 /* UINavigationBar+Appearance.swift */; };
+		B10000000000000000000007 /* UIButton+Tracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10000000000000000000007 /* UIButton+Tracker.swift */; };
+		B10000000000000000000008 /* Weekday.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10000000000000000000008 /* Weekday.swift */; };
+		B10000000000000000000009 /* Tracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10000000000000000000009 /* Tracker.swift */; };
+		B1000000000000000000000A /* TrackerCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1000000000000000000000A /* TrackerCategory.swift */; };
+		B1000000000000000000000B /* TrackerRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1000000000000000000000B /* TrackerRecord.swift */; };
+		B1000000000000000000000C /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1000000000000000000000C /* EmptyStateView.swift */; };
+		B1000000000000000000000D /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1000000000000000000000D /* TabBarController.swift */; };
+		B1000000000000000000000E /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1000000000000000000000E /* OnboardingViewController.swift */; };
+		B1000000000000000000000F /* OnboardingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1000000000000000000000F /* OnboardingPageViewController.swift */; };
+		B10000000000000000000010 /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10000000000000000000010 /* StatisticsViewController.swift */; };
+		B10000000000000000000011 /* TrackersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10000000000000000000011 /* TrackersViewController.swift */; };
+		B10000000000000000000012 /* TrackerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10000000000000000000012 /* TrackerCell.swift */; };
+		B10000000000000000000013 /* TrackerCategoryHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10000000000000000000013 /* TrackerCategoryHeaderView.swift */; };
+		B10000000000000000000014 /* TrackerTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10000000000000000000014 /* TrackerTypeViewController.swift */; };
+		B10000000000000000000015 /* NewTrackerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10000000000000000000015 /* NewTrackerViewController.swift */; };
+		B10000000000000000000016 /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10000000000000000000016 /* ScheduleViewController.swift */; };
+		B10000000000000000000017 /* OptionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10000000000000000000017 /* OptionButton.swift */; };
+		B1000000000000000000001C /* CategoryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1000000000000000000001C /* CategoryListViewController.swift */; };
+		B1000000000000000000001D /* TrackerStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1000000000000000000001D /* TrackerStore.swift */; };
+		B1000000000000000000001E /* PaletteGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1000000000000000000001E /* PaletteGridView.swift */; };
+		B1000000000000000000001F /* FiltersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1000000000000000000001F /* FiltersViewController.swift */; };
+		B10000000000000000000018 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F10000000000000000000018 /* LaunchScreen.storyboard */; };
+		B10000000000000000000019 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F10000000000000000000019 /* Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		F10000000000000000000001 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F10000000000000000000002 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		F10000000000000000000003 /* UIColor+Palette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Palette.swift"; sourceTree = "<group>"; };
+		F10000000000000000000004 /* TrackerPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerPalette.swift; sourceTree = "<group>"; };
+		F10000000000000000000005 /* RussianPlural.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RussianPlural.swift; sourceTree = "<group>"; };
+		F10000000000000000000006 /* UINavigationBar+Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationBar+Appearance.swift"; sourceTree = "<group>"; };
+		F10000000000000000000007 /* UIButton+Tracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Tracker.swift"; sourceTree = "<group>"; };
+		F10000000000000000000008 /* Weekday.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weekday.swift; sourceTree = "<group>"; };
+		F10000000000000000000009 /* Tracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tracker.swift; sourceTree = "<group>"; };
+		F1000000000000000000000A /* TrackerCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerCategory.swift; sourceTree = "<group>"; };
+		F1000000000000000000000B /* TrackerRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerRecord.swift; sourceTree = "<group>"; };
+		F1000000000000000000000C /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
+		F1000000000000000000000D /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		F1000000000000000000000E /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		F1000000000000000000000F /* OnboardingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageViewController.swift; sourceTree = "<group>"; };
+		F10000000000000000000010 /* StatisticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
+		F10000000000000000000011 /* TrackersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackersViewController.swift; sourceTree = "<group>"; };
+		F10000000000000000000012 /* TrackerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerCell.swift; sourceTree = "<group>"; };
+		F10000000000000000000013 /* TrackerCategoryHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerCategoryHeaderView.swift; sourceTree = "<group>"; };
+		F10000000000000000000014 /* TrackerTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerTypeViewController.swift; sourceTree = "<group>"; };
+		F10000000000000000000015 /* NewTrackerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTrackerViewController.swift; sourceTree = "<group>"; };
+		F10000000000000000000016 /* ScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
+		F10000000000000000000017 /* OptionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionButton.swift; sourceTree = "<group>"; };
+		F1000000000000000000001C /* CategoryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListViewController.swift; sourceTree = "<group>"; };
+		F1000000000000000000001D /* TrackerStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store/TrackerStore.swift; sourceTree = "<group>"; };
+		F1000000000000000000001E /* PaletteGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaletteGridView.swift; sourceTree = "<group>"; };
+		F1000000000000000000001F /* FiltersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersViewController.swift; sourceTree = "<group>"; };
+		F10000000000000000000018 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F10000000000000000000019 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F1000000000000000000001A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F1000000000000000000001B /* Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		300000000000000000000001 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		G10000000000000000000004 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				F10000000000000000000003 /* UIColor+Palette.swift */,
+				F10000000000000000000004 /* TrackerPalette.swift */,
+				F10000000000000000000005 /* RussianPlural.swift */,
+				F10000000000000000000006 /* UINavigationBar+Appearance.swift */,
+				F10000000000000000000007 /* UIButton+Tracker.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		G10000000000000000000005 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F10000000000000000000008 /* Weekday.swift */,
+				F10000000000000000000009 /* Tracker.swift */,
+				F1000000000000000000000A /* TrackerCategory.swift */,
+				F1000000000000000000000B /* TrackerRecord.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		G10000000000000000000007 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				F1000000000000000000000C /* EmptyStateView.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		G10000000000000000000008 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				F1000000000000000000000D /* TabBarController.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		G10000000000000000000009 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				F1000000000000000000000E /* OnboardingViewController.swift */,
+				F1000000000000000000000F /* OnboardingPageViewController.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		G1000000000000000000000A /* Statistics */ = {
+			isa = PBXGroup;
+			children = (
+				F10000000000000000000010 /* StatisticsViewController.swift */,
+			);
+			path = Statistics;
+			sourceTree = "<group>";
+		};
+		G1000000000000000000000B /* Trackers */ = {
+			isa = PBXGroup;
+			children = (
+				F10000000000000000000011 /* TrackersViewController.swift */,
+				F1000000000000000000001F /* FiltersViewController.swift */,
+				F10000000000000000000012 /* TrackerCell.swift */,
+				F10000000000000000000013 /* TrackerCategoryHeaderView.swift */,
+			);
+			path = Trackers;
+			sourceTree = "<group>";
+		};
+		G1000000000000000000000C /* TrackerCreation */ = {
+			isa = PBXGroup;
+			children = (
+				F10000000000000000000014 /* TrackerTypeViewController.swift */,
+				F10000000000000000000015 /* NewTrackerViewController.swift */,
+				F10000000000000000000016 /* ScheduleViewController.swift */,
+				F10000000000000000000017 /* OptionButton.swift */,
+				F1000000000000000000001C /* CategoryListViewController.swift */,
+				F1000000000000000000001E /* PaletteGridView.swift */,
+			);
+			path = TrackerCreation;
+			sourceTree = "<group>";
+		};
+		G10000000000000000000006 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				G10000000000000000000007 /* Common */,
+				G10000000000000000000008 /* TabBar */,
+				G10000000000000000000009 /* Onboarding */,
+				G1000000000000000000000A /* Statistics */,
+				G1000000000000000000000B /* Trackers */,
+				G1000000000000000000000C /* TrackerCreation */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		G1000000000000000000000D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F10000000000000000000018 /* LaunchScreen.storyboard */,
+				F10000000000000000000019 /* Assets.xcassets */,
+				F1000000000000000000001A /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		G10000000000000000000003 /* Tracker */ = {
+			isa = PBXGroup;
+			children = (
+				F10000000000000000000001 /* AppDelegate.swift */,
+				F10000000000000000000002 /* SceneDelegate.swift */,
+				F1000000000000000000001D /* TrackerStore.swift */,
+				G10000000000000000000004 /* Helpers */,
+				G10000000000000000000005 /* Models */,
+				G10000000000000000000006 /* Presentation */,
+				G1000000000000000000000D /* Resources */,
+			);
+			path = Tracker;
+			sourceTree = "<group>";
+		};
+		G10000000000000000000002 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F1000000000000000000001B /* Tracker.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		G10000000000000000000001 = {
+			isa = PBXGroup;
+			children = (
+				G10000000000000000000003 /* Tracker */,
+				G10000000000000000000002 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		500000000000000000000001 /* Tracker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 900000000000000000000002 /* Build configuration list for PBXNativeTarget "Tracker" */;
+			buildPhases = (
+				700000000000000000000001 /* Sources */,
+				300000000000000000000001 /* Frameworks */,
+				700000000000000000000002 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Tracker;
+			productName = Tracker;
+			productReference = F1000000000000000000001B /* Tracker.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		600000000000000000000001 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					500000000000000000000001 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+				};
+			};
+			buildConfigurationList = 900000000000000000000001 /* Build configuration list for PBXProject "Tracker" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = G10000000000000000000001;
+			productRefGroup = G10000000000000000000002 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				500000000000000000000001 /* Tracker */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		700000000000000000000002 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B10000000000000000000018 /* LaunchScreen.storyboard in Resources */,
+				B10000000000000000000019 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		700000000000000000000001 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B10000000000000000000001 /* AppDelegate.swift in Sources */,
+				B10000000000000000000002 /* SceneDelegate.swift in Sources */,
+				B10000000000000000000003 /* UIColor+Palette.swift in Sources */,
+				B10000000000000000000004 /* TrackerPalette.swift in Sources */,
+				B10000000000000000000005 /* RussianPlural.swift in Sources */,
+				B10000000000000000000006 /* UINavigationBar+Appearance.swift in Sources */,
+				B10000000000000000000007 /* UIButton+Tracker.swift in Sources */,
+				B10000000000000000000008 /* Weekday.swift in Sources */,
+				B10000000000000000000009 /* Tracker.swift in Sources */,
+				B1000000000000000000000A /* TrackerCategory.swift in Sources */,
+				B1000000000000000000000B /* TrackerRecord.swift in Sources */,
+				B1000000000000000000000C /* EmptyStateView.swift in Sources */,
+				B1000000000000000000000D /* TabBarController.swift in Sources */,
+				B1000000000000000000000E /* OnboardingViewController.swift in Sources */,
+				B1000000000000000000000F /* OnboardingPageViewController.swift in Sources */,
+				B10000000000000000000010 /* StatisticsViewController.swift in Sources */,
+				B10000000000000000000011 /* TrackersViewController.swift in Sources */,
+				B10000000000000000000012 /* TrackerCell.swift in Sources */,
+				B10000000000000000000013 /* TrackerCategoryHeaderView.swift in Sources */,
+				B10000000000000000000014 /* TrackerTypeViewController.swift in Sources */,
+				B10000000000000000000015 /* NewTrackerViewController.swift in Sources */,
+				B10000000000000000000016 /* ScheduleViewController.swift in Sources */,
+				B10000000000000000000017 /* OptionButton.swift in Sources */,
+				B1000000000000000000001C /* CategoryListViewController.swift in Sources */,
+				B1000000000000000000001D /* TrackerStore.swift in Sources */,
+				B1000000000000000000001E /* PaletteGridView.swift in Sources */,
+				B1000000000000000000001F /* FiltersViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		800000000000000000000001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		800000000000000000000002 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		800000000000000000000003 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = NO;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Tracker/Resources/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = NO;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ru.practicum.Tracker;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		800000000000000000000004 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = NO;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Tracker/Resources/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = NO;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ru.practicum.Tracker;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		900000000000000000000001 /* Build configuration list for PBXProject "Tracker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				800000000000000000000001 /* Debug */,
+				800000000000000000000002 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		900000000000000000000002 /* Build configuration list for PBXNativeTarget "Tracker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				800000000000000000000003 /* Debug */,
+				800000000000000000000004 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 600000000000000000000001 /* Project object */;
+}
