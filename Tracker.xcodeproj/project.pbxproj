@@ -34,6 +34,10 @@
 		B1000000000000000000001D /* TrackerStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1000000000000000000001D /* TrackerStore.swift */; };
 		B1000000000000000000001E /* PaletteGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1000000000000000000001E /* PaletteGridView.swift */; };
 		B1000000000000000000001F /* FiltersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1000000000000000000001F /* FiltersViewController.swift */; };
+		B10000000000000000000020 /* TrackerCategoryStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10000000000000000000020 /* TrackerCategoryStore.swift */; };
+		B10000000000000000000021 /* TrackerRecordStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10000000000000000000021 /* TrackerRecordStore.swift */; };
+		B10000000000000000000022 /* PersistentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10000000000000000000022 /* PersistentContainer.swift */; };
+		B10000000000000000000023 /* Tracker.xcdatamodeld in Resources */ = {isa = PBXBuildFile; fileRef = V10000000000000000000023 /* Tracker.xcdatamodeld */; };
 		B10000000000000000000018 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F10000000000000000000018 /* LaunchScreen.storyboard */; };
 		B10000000000000000000019 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F10000000000000000000019 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
@@ -64,6 +68,10 @@
 		F10000000000000000000017 /* OptionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionButton.swift; sourceTree = "<group>"; };
 		F1000000000000000000001C /* CategoryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListViewController.swift; sourceTree = "<group>"; };
 		F1000000000000000000001D /* TrackerStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store/TrackerStore.swift; sourceTree = "<group>"; };
+		F10000000000000000000020 /* TrackerCategoryStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store/TrackerCategoryStore.swift; sourceTree = "<group>"; };
+		F10000000000000000000021 /* TrackerRecordStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store/TrackerRecordStore.swift; sourceTree = "<group>"; };
+		F10000000000000000000022 /* PersistentContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store/PersistentContainer.swift; sourceTree = "<group>"; };
+		F10000000000000000000024 /* Tracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Tracker.xcdatamodel; sourceTree = "<group>"; };
 		F1000000000000000000001E /* PaletteGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaletteGridView.swift; sourceTree = "<group>"; };
 		F1000000000000000000001F /* FiltersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersViewController.swift; sourceTree = "<group>"; };
 		F10000000000000000000018 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -182,6 +190,7 @@
 				F10000000000000000000018 /* LaunchScreen.storyboard */,
 				F10000000000000000000019 /* Assets.xcassets */,
 				F1000000000000000000001A /* Info.plist */,
+				V10000000000000000000023 /* Tracker.xcdatamodeld */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -192,6 +201,9 @@
 				F10000000000000000000001 /* AppDelegate.swift */,
 				F10000000000000000000002 /* SceneDelegate.swift */,
 				F1000000000000000000001D /* TrackerStore.swift */,
+				F10000000000000000000020 /* TrackerCategoryStore.swift */,
+				F10000000000000000000021 /* TrackerRecordStore.swift */,
+				F10000000000000000000022 /* PersistentContainer.swift */,
 				G10000000000000000000004 /* Helpers */,
 				G10000000000000000000005 /* Models */,
 				G10000000000000000000006 /* Presentation */,
@@ -276,6 +288,7 @@
 			files = (
 				B10000000000000000000018 /* LaunchScreen.storyboard in Resources */,
 				B10000000000000000000019 /* Assets.xcassets in Resources */,
+				B10000000000000000000023 /* Tracker.xcdatamodeld in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -311,6 +324,9 @@
 				B10000000000000000000017 /* OptionButton.swift in Sources */,
 				B1000000000000000000001C /* CategoryListViewController.swift in Sources */,
 				B1000000000000000000001D /* TrackerStore.swift in Sources */,
+				B10000000000000000000020 /* TrackerCategoryStore.swift in Sources */,
+				B10000000000000000000021 /* TrackerRecordStore.swift in Sources */,
+				B10000000000000000000022 /* PersistentContainer.swift in Sources */,
 				B1000000000000000000001E /* PaletteGridView.swift in Sources */,
 				B1000000000000000000001F /* FiltersViewController.swift in Sources */,
 			);
@@ -521,6 +537,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		V10000000000000000000023 /* Tracker.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				F10000000000000000000024 /* Tracker.xcdatamodel */,
+			);
+			currentVersion = F10000000000000000000024 /* Tracker.xcdatamodel */;
+			path = Tracker.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 600000000000000000000001 /* Project object */;
 }

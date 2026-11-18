@@ -6,8 +6,6 @@ enum TrackerCreationType {
 }
 
 protocol NewTrackerViewControllerDelegate: AnyObject {
-    func categoryTitles() -> [String]
-    func addCategory(title: String)
     func newTrackerViewController(
         _ viewController: NewTrackerViewController,
         didCreate tracker: Tracker,
@@ -20,7 +18,6 @@ final class NewTrackerViewController: UIViewController {
 
     private let type: TrackerCreationType
     private var selectedDays: Set<Weekday> = []
-    private var selectedCategoryTitle: String?
     private var selectedEmojiIndex: Int?
     private var selectedColorIndex: Int?
 
@@ -138,7 +135,6 @@ final class NewTrackerViewController: UIViewController {
 
         categoryButton.configure(title: "Категория", subtitle: nil)
         categoryButton.setSeparatorHidden(type != .habit)
-        categoryButton.addTarget(self, action: #selector(categoryTapped), for: .touchUpInside)
         optionsStack.addArrangedSubview(categoryButton)
 
         if type == .habit {
@@ -249,7 +245,6 @@ final class NewTrackerViewController: UIViewController {
 
     private var isFormValid: Bool {
         guard isNameValid,
-              selectedCategoryTitle != nil,
               selectedEmojiIndex != nil,
               selectedColorIndex != nil else { return false }
         switch type {
@@ -270,12 +265,6 @@ final class NewTrackerViewController: UIViewController {
 
     @objc private func nameChanged() {
         updateFormState()
-    }
-
-    @objc private func categoryTapped() {
-        let categoryList = CategoryListViewController(selectedTitle: selectedCategoryTitle)
-        categoryList.delegate = self
-        navigationController?.pushViewController(categoryList, animated: true)
     }
 
     @objc private func scheduleTapped() {
@@ -306,8 +295,7 @@ final class NewTrackerViewController: UIViewController {
             emoji: TrackerPalette.emoji(at: emojiIndex),
             schedule: schedule
         )
-        guard let categoryTitle = selectedCategoryTitle else { return }
-        delegate?.newTrackerViewController(self, didCreate: tracker, categoryTitle: categoryTitle)
+        delegate?.newTrackerViewController(self, didCreate: tracker, categoryTitle: "Важное")
         dismiss(animated: true)
     }
 
@@ -337,22 +325,6 @@ extension NewTrackerViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
-    }
-}
-
-extension NewTrackerViewController: CategoryListViewControllerDelegate {
-    func categoryTitles() -> [String] {
-        delegate?.categoryTitles() ?? []
-    }
-
-    func categoryListDidCreateCategory(_ title: String) {
-        delegate?.addCategory(title: title)
-    }
-
-    func categoryList(_ viewController: CategoryListViewController, didSelect title: String) {
-        selectedCategoryTitle = title
-        categoryButton.configure(title: "Категория", subtitle: title)
-        updateFormState()
     }
 }
 

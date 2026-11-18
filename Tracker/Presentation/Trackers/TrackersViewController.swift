@@ -1,13 +1,13 @@
 import UIKit
 
 final class TrackersViewController: UIViewController {
-    private let store = TrackerStore()
-    private var isRestoring = false
+    private let categoryStore = TrackerCategoryStore()
+    private lazy var trackerStore = TrackerStore(categoryStore: categoryStore)
+    private lazy var recordStore = TrackerRecordStore(trackerStore: trackerStore)
 
     var categories: [TrackerCategory] = [] {
         didSet {
             reloadTrackers()
-            persist()
         }
     }
 
@@ -15,7 +15,6 @@ final class TrackersViewController: UIViewController {
         didSet {
             rebuildCompletedTrackerIds()
             reloadTrackers()
-            persist()
         }
     }
 
@@ -137,7 +136,10 @@ final class TrackersViewController: UIViewController {
         setupEmptyState()
         setupSearch()
         setupFilterButton()
-        restoreStoredTrackers()
+        categoryStore.delegate = self
+        trackerStore.delegate = self
+        recordStore.delegate = self
+        applyStoreSnapshot()
         currentDate = datePicker.date
         reloadTrackers()
     }
@@ -262,17 +264,9 @@ final class TrackersViewController: UIViewController {
         }
     }
 
-    private func restoreStoredTrackers() {
-        let snapshot = store.load()
-        isRestoring = true
-        categories = snapshot.categories
-        completedTrackers = snapshot.records
-        isRestoring = false
-    }
-
-    private func persist() {
-        guard !isRestoring else { return }
-        store.save(categories: categories, records: completedTrackers)
+    private func applyStoreSnapshot() {
+        categories = categoryStore.categories()
+        completedTrackers = recordStore.records()
     }
 
     private func setupFilterButton() {
@@ -289,31 +283,10 @@ final class TrackersViewController: UIViewController {
         guard !isFutureDate else { return }
         let day = calendar.startOfDay(for: currentDate)
         if completedTrackerIds.contains(tracker.id) {
-            completedTrackers.removeAll { record in
-                record.trackerId == tracker.id && calendar.isDate(record.date, inSameDayAs: day)
-            }
+            recordStore.remove(trackerId: tracker.id, on: day)
         } else {
-            completedTrackers.append(TrackerRecord(trackerId: tracker.id, date: day))
+            recordStore.add(trackerId: tracker.id, on: day)
         }
-    }
-
-    private func addTracker(_ tracker: Tracker, toCategory title: String) {
-        var updatedCategories: [TrackerCategory] = []
-        var inserted = false
-        for category in categories {
-            if category.title == title {
-                updatedCategories.append(
-                    TrackerCategory(title: category.title, trackers: category.trackers + [tracker])
-                )
-                inserted = true
-            } else {
-                updatedCategories.append(category)
-            }
-        }
-        if !inserted {
-            updatedCategories.append(TrackerCategory(title: title, trackers: [tracker]))
-        }
-        categories = updatedCategories
     }
 
     @objc private func didTapAdd() {
@@ -452,22 +425,29 @@ extension TrackersViewController: FiltersViewControllerDelegate {
 }
 
 extension TrackersViewController: NewTrackerViewControllerDelegate {
-    func categoryTitles() -> [String] {
-        categories.map(\.title)
-    }
-
-    func addCategory(title: String) {
-        let name = title.trimmingCharacters(in: .whitespacesAndNewlines)
-        guard !name.isEmpty, name.count <= 38 else { return }
-        guard !categories.contains(where: { $0.title.caseInsensitiveCompare(name) == .orderedSame }) else { return }
-        categories = categories + [TrackerCategory(title: name, trackers: [])]
-    }
-
     func newTrackerViewController(
         _ viewController: NewTrackerViewController,
         didCreate tracker: Tracker,
         categoryTitle: String
     ) {
-        addTracker(tracker, toCategory: categoryTitle)
+        trackerStore.add(tracker, toCategory: categoryTitle)
+    }
+}
+
+extension TrackersViewController: TrackerCategoryStoreDelegate {
+    func trackerCategoryStoreDidUpdate() {
+        applyStoreSnapshot()
+    }
+}
+
+extension TrackersViewController: TrackerStoreDelegate {
+    func trackerStoreDidUpdate() {
+        applyStoreSnapshot()
+    }
+}
+
+extension TrackersViewController: TrackerRecordStoreDelegate {
+    func trackerRecordStoreDidUpdate() {
+        applyStoreSnapshot()
     }
 }

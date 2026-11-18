@@ -68,7 +68,7 @@ final class PaletteGridView: UIView {
                 height: cell
             )
             button.layer.cornerRadius = cell / 2
-            button.clipsToBounds = true
+            button.clipsToBounds = style == .emoji
             let isSelected = index == selectedIndex
             switch style {
             case .emoji:
