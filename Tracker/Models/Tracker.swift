@@ -17,9 +17,9 @@ extension TrackerSchedule {
     var storedValue: String {
         switch self {
         case .irregular:
-            return "irregular"
+            "irregular"
         case .habit(let days):
-            return days.map { String($0.rawValue) }.sorted().joined(separator: ",")
+            days.map { String($0.rawValue) }.sorted().joined(separator: ",")
         }
     }
 

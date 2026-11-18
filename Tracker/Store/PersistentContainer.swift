@@ -13,7 +13,7 @@ final class PersistentContainer {
         container = NSPersistentContainer(name: "Tracker")
         container.loadPersistentStores { _, error in
             if let error {
-                fatalError("Не удалось открыть хранилище Core Data: \(error)")
+                assertionFailure("Не удалось открыть хранилище Core Data: \(error)")
             }
         }
         container.viewContext.automaticallyMergesChangesFromParent = true
