@@ -23,14 +23,16 @@ final class TabBarController: UITabBarController {
         let profileInactiveIcon = UIImage(named: "tab_profile_no_active")?.withRenderingMode(.alwaysOriginal)
         let profileActiveIcon = UIImage(named: "tab_profile_active")?.withRenderingMode(.alwaysOriginal)
 
-        let imagesListViewController = ImagesListViewController()
+        let storyboard = UIStoryboard(name: "Main", bundle: .main)
+        let imagesListViewController = storyboard.instantiateViewController(
+            withIdentifier: "ImagesListViewController"
+        )
         imagesListViewController.tabBarItem = UITabBarItem(
             title: nil,
             image: feedInactiveIcon,
             selectedImage: feedActiveIcon
         )
 
-        let storyboard = UIStoryboard(name: "Main", bundle: .main)
         let profileViewController = storyboard.instantiateViewController(
             withIdentifier: "ProfileViewController"
         )

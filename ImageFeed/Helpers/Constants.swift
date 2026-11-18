@@ -20,10 +20,17 @@ enum Constants {
         static let bearer = "Bearer "
         static let mePath = "/me"
         static let usersPath = "/users"
+        static let photosPath = "/photos"
         static let authorizationCode = "authorization_code"
+        static let pageQuery = "page"
+        static let perPageQuery = "per_page"
+        static let perPageValue = "10"
+        static let postMethod = "POST"
+        static let deleteMethod = "DELETE"
     }
 
     enum Notifications {
         static let profileImageServiceDidChange = "ProfileImageServiceDidChangeNotification"
+        static let imagesListServiceDidChange = "ImagesListServiceDidChange"
     }
 }

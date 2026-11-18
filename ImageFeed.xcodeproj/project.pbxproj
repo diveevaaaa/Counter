@@ -40,6 +40,7 @@
 		100000000000000000000032 /* SwiftKeychainWrapper in Frameworks */ = {isa = PBXBuildFile; productRef = 320000000000000000000002 /* SwiftKeychainWrapper */; };
 		100000000000000000000033 /* AlertPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000033 /* AlertPresenter.swift */; };
 		100000000000000000000034 /* ProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 320000000000000000000003 /* ProgressHUD */; };
+		100000000000000000000035 /* ImagesListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000034 /* ImagesListService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,6 +76,7 @@
 		200000000000000000000031 /* ProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileService.swift; sourceTree = "<group>"; };
 		200000000000000000000032 /* ProfileImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageService.swift; sourceTree = "<group>"; };
 		200000000000000000000033 /* AlertPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPresenter.swift; sourceTree = "<group>"; };
+		200000000000000000000034 /* ImagesListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesListService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +154,7 @@
 				200000000000000000000019 /* OAuth2TokenStorage.swift */,
 				200000000000000000000031 /* ProfileService.swift */,
 				200000000000000000000032 /* ProfileImageService.swift */,
+				200000000000000000000034 /* ImagesListService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -333,6 +336,7 @@
 				100000000000000000000028 /* UserResult.swift in Sources */,
 				100000000000000000000029 /* ProfileService.swift in Sources */,
 				100000000000000000000030 /* ProfileImageService.swift in Sources */,
+				100000000000000000000035 /* ImagesListService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
