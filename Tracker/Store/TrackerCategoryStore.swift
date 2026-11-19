@@ -49,6 +49,24 @@ final class TrackerCategoryStore: NSObject, NSFetchedResultsControllerDelegate {
         try? fetchedResultsController.performFetch()
     }
 
+    func fetchCategoryTitles() -> [String] {
+        categories().map(\.title).filter { !$0.isEmpty }
+    }
+
+    func saveCategory(title: String) {
+        let name = title.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !name.isEmpty, name.count <= 38 else { return }
+        let request = TrackerCategoryCoreData.fetchRequest()
+        request.fetchLimit = 1
+        request.predicate = NSPredicate(format: "title ==[c] %@", name)
+        if let existing = try? context.fetch(request), !existing.isEmpty {
+            return
+        }
+        let created = TrackerCategoryCoreData(context: context)
+        created.title = name
+        PersistentContainer.shared.saveIfNeeded()
+    }
+
     func categories() -> [TrackerCategory] {
         let request = TrackerCategoryCoreData.fetchRequest()
         request.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true)]

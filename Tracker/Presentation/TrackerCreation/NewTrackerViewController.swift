@@ -18,6 +18,7 @@ final class NewTrackerViewController: UIViewController {
 
     private let type: TrackerCreationType
     private var selectedDays: Set<Weekday> = []
+    private var selectedCategoryTitle: String?
     private var selectedEmojiIndex: Int?
     private var selectedColorIndex: Int?
 
@@ -135,6 +136,7 @@ final class NewTrackerViewController: UIViewController {
 
         categoryButton.configure(title: "Категория", subtitle: nil)
         categoryButton.setSeparatorHidden(type != .habit)
+        categoryButton.addTarget(self, action: #selector(categoryTapped), for: .touchUpInside)
         optionsStack.addArrangedSubview(categoryButton)
 
         if type == .habit {
@@ -245,6 +247,7 @@ final class NewTrackerViewController: UIViewController {
 
     private var isFormValid: Bool {
         guard isNameValid,
+              selectedCategoryTitle != nil,
               selectedEmojiIndex != nil,
               selectedColorIndex != nil else { return false }
         switch type {
@@ -265,6 +268,19 @@ final class NewTrackerViewController: UIViewController {
 
     @objc private func nameChanged() {
         updateFormState()
+    }
+
+    @objc private func categoryTapped() {
+        let viewModel = CategoryListViewModel(selectedTitle: selectedCategoryTitle)
+        viewModel.onSelect = { [weak self] title in
+            guard let self else { return }
+            self.selectedCategoryTitle = title
+            self.categoryButton.configure(title: "Категория", subtitle: title)
+            self.updateFormState()
+            self.navigationController?.popViewController(animated: true)
+        }
+        let list = CategoryListViewController(viewModel: viewModel)
+        navigationController?.pushViewController(list, animated: true)
     }
 
     @objc private func scheduleTapped() {
@@ -295,7 +311,8 @@ final class NewTrackerViewController: UIViewController {
             emoji: TrackerPalette.emoji(at: emojiIndex),
             schedule: schedule
         )
-        delegate?.newTrackerViewController(self, didCreate: tracker, categoryTitle: "Важное")
+        guard let categoryTitle = selectedCategoryTitle else { return }
+        delegate?.newTrackerViewController(self, didCreate: tracker, categoryTitle: categoryTitle)
         dismiss(animated: true)
     }
 
