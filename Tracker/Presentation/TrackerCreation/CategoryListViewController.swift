@@ -1,20 +1,11 @@
 import UIKit
 
-protocol CategoryListViewControllerDelegate: AnyObject {
-    func categoryTitles() -> [String]
-    func categoryListDidCreateCategory(_ title: String)
-    func categoryList(_ viewController: CategoryListViewController, didSelect title: String)
-}
-
 protocol NewCategoryViewControllerDelegate: AnyObject {
     func newCategoryViewController(_ viewController: NewCategoryViewController, didCreate title: String)
 }
 
 final class CategoryListViewController: UIViewController {
-    weak var delegate: CategoryListViewControllerDelegate?
-
-    private var titles: [String] = []
-    private var selectedTitle: String?
+    private let viewModel: CategoryListViewModel
     private var tableHeightConstraint: NSLayoutConstraint?
 
     private let tableView: UITableView = {
@@ -38,8 +29,8 @@ final class CategoryListViewController: UIViewController {
 
     private let addButton = UIButton.trackerFilled(title: "Добавить категорию")
 
-    init(selectedTitle: String?) {
-        self.selectedTitle = selectedTitle
+    init(viewModel: CategoryListViewModel) {
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -60,6 +51,9 @@ final class CategoryListViewController: UIViewController {
         tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: CGFloat.leastNormalMagnitude))
         tableView.register(CategoryCell.self, forCellReuseIdentifier: CategoryCell.reuseIdentifier)
 
+        viewModel.onChange = { [weak self] in
+            self?.reloadList()
+        }
         addButton.addTarget(self, action: #selector(addTapped), for: .touchUpInside)
         emptyStateView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(tableView)
@@ -99,15 +93,14 @@ final class CategoryListViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.applyTrackerAppearance(usesCompactTitle: true)
-        titles = delegate?.categoryTitles() ?? []
-        reloadList()
+        viewModel.load()
     }
 
     private func reloadList() {
-        let isEmpty = titles.isEmpty
+        let isEmpty = viewModel.isEmpty
         emptyStateView.isHidden = !isEmpty
         tableView.isHidden = isEmpty
-        tableHeightConstraint?.constant = 75 * CGFloat(titles.count)
+        tableHeightConstraint?.constant = 75 * CGFloat(viewModel.numberOfRows())
         tableView.reloadData()
     }
 
@@ -120,7 +113,7 @@ final class CategoryListViewController: UIViewController {
 
 extension CategoryListViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        titles.count
+        viewModel.numberOfRows()
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -130,26 +123,23 @@ extension CategoryListViewController: UITableViewDataSource, UITableViewDelegate
         ) as? CategoryCell else {
             return UITableViewCell()
         }
-        let title = titles[indexPath.row]
+        let model = viewModel.cellModel(at: indexPath.row)
         cell.configure(
-            title: title,
-            isSelected: title == selectedTitle,
-            showsSeparator: indexPath.row < titles.count - 1
+            title: model.title,
+            isSelected: model.isSelected,
+            showsSeparator: model.showsSeparator
         )
         return cell
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let title = titles[indexPath.row]
-        selectedTitle = title
-        delegate?.categoryList(self, didSelect: title)
-        navigationController?.popViewController(animated: true)
+        viewModel.select(at: indexPath.row)
     }
 }
 
 extension CategoryListViewController: NewCategoryViewControllerDelegate {
     func newCategoryViewController(_ viewController: NewCategoryViewController, didCreate title: String) {
-        delegate?.categoryListDidCreateCategory(title)
+        viewModel.add(title: title)
     }
 }
 
