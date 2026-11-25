@@ -280,7 +280,8 @@ final class TrackersViewController: UIViewController {
         collectionView.verticalScrollIndicatorInsets.bottom = bottomInset
         updateFilterButton()
         let query = searchText.trimmingCharacters(in: .whitespacesAndNewlines)
-        if query.isEmpty && !isFilterActive {
+        let showsFilteredEmptyState = !query.isEmpty || trackerFilter != .all
+        if !showsFilteredEmptyState {
             emptyStateView.update(
                 imageName: "StubTrackers",
                 text: L10n.text("trackers.empty"),
@@ -392,9 +393,6 @@ final class TrackersViewController: UIViewController {
     }
 
     @objc private func datePickerChanged() {
-        if trackerFilter == .today {
-            trackerFilter = .all
-        }
         currentDate = datePicker.date
     }
 

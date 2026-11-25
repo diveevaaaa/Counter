@@ -80,7 +80,7 @@ final class TrackerStore: NSObject, NSFetchedResultsControllerDelegate {
     }
 
     func update(_ tracker: Tracker, categoryTitle: String) {
-        guard let object = tracker(id: tracker.id) else { return }
+        guard let object = self.tracker(id: tracker.id) else { return }
         object.fill(from: tracker)
         object.category = categoryStore.category(titled: categoryTitle)
         PersistentContainer.shared.saveIfNeeded()
