@@ -14,6 +14,8 @@ protocol NewTrackerViewControllerDelegate: AnyObject {
 }
 
 final class NewTrackerViewController: UIViewController {
+    private static let maxNameLength = 38
+
     weak var delegate: NewTrackerViewControllerDelegate?
 
     private let type: TrackerCreationType
@@ -63,7 +65,7 @@ final class NewTrackerViewController: UIViewController {
 
     private let limitLabel: UILabel = {
         let label = UILabel()
-        label.text = "Ограничение 38 символов"
+        label.text = "Ограничение \(NewTrackerViewController.maxNameLength) символов"
         label.font = .systemFont(ofSize: 17)
         label.textColor = .ypRed
         label.textAlignment = .center
@@ -273,7 +275,7 @@ final class NewTrackerViewController: UIViewController {
     }
 
     private var isNameValid: Bool {
-        !trimmedName.isEmpty && enteredText.count <= 38
+        !trimmedName.isEmpty && enteredText.count <= Self.maxNameLength
     }
 
     private func sectionTitle(_ text: String) -> UILabel {
@@ -298,7 +300,7 @@ final class NewTrackerViewController: UIViewController {
     }
 
     private func updateFormState() {
-        let showsLimit = enteredText.count > 38
+        let showsLimit = enteredText.count > Self.maxNameLength
         limitLabel.isHidden = !showsLimit
         contentStack.setCustomSpacing(showsLimit ? 8 : 24, after: textField)
         createButton.isEnabled = isFormValid

@@ -4,6 +4,8 @@
 "trackers.emptySearch" = "Ничего не найдено";
 "trackers.filters" = "Фильтры";
 "trackers.add" = "Добавить";
+"type.habit" = "Привычка";
+"type.event" = "Нерегулярное событие";
 "filters.title" = "Фильтры";
 "filters.all" = "Все трекеры";
 "filters.today" = "Трекеры на сегодня";

@@ -4,6 +4,8 @@
 "trackers.emptySearch" = "Nothing found";
 "trackers.filters" = "Filters";
 "trackers.add" = "Add";
+"type.habit" = "Habit";
+"type.event" = "Irregular event";
 "filters.title" = "Filters";
 "filters.all" = "All trackers";
 "filters.today" = "Trackers for today";

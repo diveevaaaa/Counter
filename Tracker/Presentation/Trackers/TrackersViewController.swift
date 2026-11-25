@@ -160,12 +160,12 @@ final class TrackersViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        AnalyticsService.report(event: "open", screen: "Main")
+        AnalyticsService.report(.open)
     }
 
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        AnalyticsService.report(event: "close", screen: "Main")
+        AnalyticsService.report(.close)
     }
 
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
@@ -385,7 +385,7 @@ final class TrackersViewController: UIViewController {
     }
 
     @objc private func didTapAdd() {
-        AnalyticsService.report(event: "click", screen: "Main", item: "add_track")
+        AnalyticsService.report(.click(.addTrack))
         let typeViewController = TrackerTypeViewController()
         typeViewController.delegate = self
         presentCreation(typeViewController)
@@ -399,7 +399,7 @@ final class TrackersViewController: UIViewController {
     }
 
     @objc private func filterTapped() {
-        AnalyticsService.report(event: "click", screen: "Main", item: "filter")
+        AnalyticsService.report(.click(.filter))
         let filtersViewController = FiltersViewController(selected: trackerFilter)
         filtersViewController.delegate = self
         let navigation = UINavigationController(rootViewController: filtersViewController)
@@ -491,9 +491,11 @@ extension TrackersViewController: UICollectionViewDelegateFlowLayout {
         contextMenuConfigurationForItemAt indexPath: IndexPath,
         point: CGPoint
     ) -> UIContextMenuConfiguration? {
-        guard indexPath.section < visibleCategories.count,
-              indexPath.item < visibleCategories[indexPath.section].trackers.count else { return nil }
-        let tracker = visibleCategories[indexPath.section].trackers[indexPath.item]
+        let sections = visibleCategories
+        guard sections.indices.contains(indexPath.section) else { return nil }
+        let trackers = sections[indexPath.section].trackers
+        guard trackers.indices.contains(indexPath.item) else { return nil }
+        let tracker = trackers[indexPath.item]
         return UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { [weak self] _ in
             guard let self else { return nil }
             let pinTitle = tracker.isPinned ? L10n.text("menu.unpin") : L10n.text("menu.pin")
@@ -501,11 +503,11 @@ extension TrackersViewController: UICollectionViewDelegateFlowLayout {
                 self?.trackerStore.setPinned(!tracker.isPinned, id: tracker.id)
             }
             let edit = UIAction(title: L10n.text("menu.edit")) { [weak self] _ in
-                AnalyticsService.report(event: "click", screen: "Main", item: "edit")
+                AnalyticsService.report(.click(.edit))
                 self?.editTracker(tracker)
             }
             let delete = UIAction(title: L10n.text("menu.delete"), attributes: .destructive) { [weak self] _ in
-                AnalyticsService.report(event: "click", screen: "Main", item: "delete")
+                AnalyticsService.report(.click(.delete))
                 self?.confirmDelete(tracker)
             }
             return UIMenu(children: [pin, edit, delete])
@@ -522,11 +524,13 @@ extension TrackersViewController: UISearchResultsUpdating {
 
 extension TrackersViewController: TrackerCellDelegate {
     func trackerCellDidTapCompleteButton(_ cell: TrackerCell) {
-        guard let indexPath = collectionView.indexPath(for: cell),
-              indexPath.section < visibleCategories.count,
-              indexPath.item < visibleCategories[indexPath.section].trackers.count else { return }
-        AnalyticsService.report(event: "click", screen: "Main", item: "track")
-        let tracker = visibleCategories[indexPath.section].trackers[indexPath.item]
+        guard let indexPath = collectionView.indexPath(for: cell) else { return }
+        let sections = visibleCategories
+        guard sections.indices.contains(indexPath.section) else { return }
+        let trackers = sections[indexPath.section].trackers
+        guard trackers.indices.contains(indexPath.item) else { return }
+        AnalyticsService.report(.click(.track))
+        let tracker = trackers[indexPath.item]
         toggleCompletion(for: tracker)
     }
 }

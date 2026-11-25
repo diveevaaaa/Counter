@@ -10,9 +10,9 @@ final class TrackerTypeViewController: UIViewController {
         navigationItem.largeTitleDisplayMode = .never
         navigationItem.backButtonDisplayMode = .minimal
 
-        let habitButton = UIButton.trackerFilled(title: "Привычка")
+        let habitButton = UIButton.trackerFilled(title: L10n.text("type.habit"))
         habitButton.addTarget(self, action: #selector(habitTapped), for: .touchUpInside)
-        let eventButton = UIButton.trackerFilled(title: "Нерегулярное событие")
+        let eventButton = UIButton.trackerFilled(title: L10n.text("type.event"))
         eventButton.addTarget(self, action: #selector(eventTapped), for: .touchUpInside)
 
         let stack = UIStackView(arrangedSubviews: [habitButton, eventButton])
