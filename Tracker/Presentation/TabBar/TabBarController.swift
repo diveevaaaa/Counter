@@ -37,7 +37,7 @@ final class TabBarController: UITabBarController {
     private func makeTrackersNavigation() -> UINavigationController {
         let navigation = UINavigationController(rootViewController: TrackersViewController())
         navigation.tabBarItem = UITabBarItem(
-            title: "Трекеры",
+            title: L10n.text("tabs.trackers"),
             image: UIImage(systemName: "circle"),
             selectedImage: UIImage(systemName: "circle")
         )
@@ -49,7 +49,7 @@ final class TabBarController: UITabBarController {
     private func makeStatisticsNavigation() -> UINavigationController {
         let navigation = UINavigationController(rootViewController: StatisticsViewController())
         navigation.tabBarItem = UITabBarItem(
-            title: "Статистика",
+            title: L10n.text("tabs.statistics"),
             image: UIImage(systemName: "hare"),
             selectedImage: UIImage(systemName: "hare")
         )

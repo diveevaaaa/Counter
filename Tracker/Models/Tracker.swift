@@ -11,6 +11,7 @@ struct Tracker {
     let color: UIColor
     let emoji: String
     let schedule: TrackerSchedule
+    let isPinned: Bool = false
 }
 
 extension TrackerSchedule {

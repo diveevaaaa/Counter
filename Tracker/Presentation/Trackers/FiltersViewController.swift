@@ -8,11 +8,15 @@ enum TrackerFilter: Int, CaseIterable {
 
     var title: String {
         switch self {
-        case .all: return "Все трекеры"
-        case .today: return "Трекеры на сегодня"
-        case .completed: return "Завершенные"
-        case .uncompleted: return "Не завершенные"
+        case .all: return L10n.text("filters.all")
+        case .today: return L10n.text("filters.today")
+        case .completed: return L10n.text("filters.completed")
+        case .uncompleted: return L10n.text("filters.uncompleted")
         }
+    }
+
+    var showsCheckmark: Bool {
+        self == .completed || self == .uncompleted
     }
 }
 
@@ -51,7 +55,7 @@ final class FiltersViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .ypWhite
-        navigationItem.title = "Фильтры"
+        navigationItem.title = L10n.text("filters.title")
         navigationItem.largeTitleDisplayMode = .never
         tableView.dataSource = self
         tableView.delegate = self
@@ -88,7 +92,7 @@ extension FiltersViewController: UITableViewDataSource, UITableViewDelegate {
         let filter = filters[indexPath.row]
         cell.configure(
             title: filter.title,
-            isSelected: filter == selected,
+            isSelected: filter.showsCheckmark && filter == selected,
             showsSeparator: indexPath.row < filters.count - 1
         )
         return cell

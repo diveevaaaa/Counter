@@ -8,7 +8,7 @@ enum TrackerCreationType {
 protocol NewTrackerViewControllerDelegate: AnyObject {
     func newTrackerViewController(
         _ viewController: NewTrackerViewController,
-        didCreate tracker: Tracker,
+        didFinish tracker: Tracker,
         categoryTitle: String
     )
 }
@@ -17,6 +17,8 @@ final class NewTrackerViewController: UIViewController {
     weak var delegate: NewTrackerViewControllerDelegate?
 
     private let type: TrackerCreationType
+    private let editingTrackerID: UUID?
+    private let preservedPin: Bool
     private var selectedDays: Set<Weekday> = []
     private var selectedCategoryTitle: String?
     private var selectedEmojiIndex: Int?
@@ -95,9 +97,23 @@ final class NewTrackerViewController: UIViewController {
         return view
     }()
 
-    init(type: TrackerCreationType) {
+    init(type: TrackerCreationType, tracker: Tracker? = nil, categoryTitle: String? = nil) {
         self.type = type
+        self.editingTrackerID = tracker?.id
+        self.preservedPin = tracker?.isPinned ?? false
         super.init(nibName: nil, bundle: nil)
+        if let tracker {
+            selectedCategoryTitle = categoryTitle
+            switch tracker.schedule {
+            case .habit(let days):
+                selectedDays = days
+            case .irregular:
+                break
+            }
+            selectedEmojiIndex = TrackerPalette.emojis.firstIndex(of: tracker.emoji)
+            selectedColorIndex = TrackerPalette.colors.firstIndex { $0.trackerHex == tracker.color.trackerHex }
+            textField.text = tracker.name
+        }
     }
 
     required init?(coder: NSCoder) {
@@ -113,14 +129,37 @@ final class NewTrackerViewController: UIViewController {
         view.backgroundColor = .ypWhite
         navigationItem.largeTitleDisplayMode = .never
         navigationItem.backButtonDisplayMode = .minimal
-        switch type {
-        case .habit:
-            navigationItem.title = "Новая привычка"
-        case .irregularEvent:
-            navigationItem.title = "Новое нерегулярное событие"
+        if editingTrackerID != nil {
+            switch type {
+            case .habit:
+                navigationItem.title = "Редактирование привычки"
+            case .irregularEvent:
+                navigationItem.title = "Редактирование события"
+            }
+        } else {
+            switch type {
+            case .habit:
+                navigationItem.title = "Новая привычка"
+            case .irregularEvent:
+                navigationItem.title = "Новое нерегулярное событие"
+            }
         }
         setupForm()
         setupButtons()
+        if editingTrackerID != nil {
+            createButton.setTitle("Сохранить", for: .normal)
+            categoryButton.configure(title: "Категория", subtitle: selectedCategoryTitle)
+            if type == .habit {
+                let summary = Weekday.summary(for: selectedDays)
+                scheduleButton.configure(title: "Расписание", subtitle: summary.isEmpty ? nil : summary)
+            }
+            if let selectedEmojiIndex {
+                emojiGrid.select(index: selectedEmojiIndex)
+            }
+            if let selectedColorIndex {
+                colorGrid.select(index: selectedColorIndex)
+            }
+        }
         setupKeyboard()
         updateFormState()
     }
@@ -305,14 +344,15 @@ final class NewTrackerViewController: UIViewController {
             schedule = .irregular
         }
         let tracker = Tracker(
-            id: UUID(),
+            id: editingTrackerID ?? UUID(),
             name: trimmedName,
             color: TrackerPalette.color(at: colorIndex),
             emoji: TrackerPalette.emoji(at: emojiIndex),
-            schedule: schedule
+            schedule: schedule,
+            isPinned: preservedPin
         )
         guard let categoryTitle = selectedCategoryTitle else { return }
-        delegate?.newTrackerViewController(self, didCreate: tracker, categoryTitle: categoryTitle)
+        delegate?.newTrackerViewController(self, didFinish: tracker, categoryTitle: categoryTitle)
         dismiss(animated: true)
     }
 

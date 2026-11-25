@@ -7,6 +7,7 @@ struct TrackerCellModel {
     let daysText: String
     let isCompleted: Bool
     let isCompleteButtonEnabled: Bool
+    let isPinned: Bool
 }
 
 protocol TrackerCellDelegate: AnyObject {
@@ -24,6 +25,19 @@ final class TrackerCell: UICollectionViewCell {
         view.layer.masksToBounds = true
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
+    }()
+
+    private let pinImageView: UIImageView = {
+        let imageView = UIImageView(
+            image: UIImage(
+                systemName: "pin.fill",
+                withConfiguration: UIImage.SymbolConfiguration(pointSize: 12, weight: .semibold)
+            )
+        )
+        imageView.tintColor = .white
+        imageView.isHidden = true
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
     }()
 
     private let emojiLabel: UILabel = {
@@ -72,6 +86,7 @@ final class TrackerCell: UICollectionViewCell {
         backgroundColor = .clear
         contentView.backgroundColor = .clear
         contentView.addSubview(colorView)
+        contentView.addSubview(pinImageView)
         contentView.addSubview(emojiLabel)
         contentView.addSubview(nameLabel)
         contentView.addSubview(daysLabel)
@@ -83,6 +98,11 @@ final class TrackerCell: UICollectionViewCell {
             colorView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             colorView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             colorView.heightAnchor.constraint(equalToConstant: 90),
+
+            pinImageView.topAnchor.constraint(equalTo: colorView.topAnchor, constant: 12),
+            pinImageView.trailingAnchor.constraint(equalTo: colorView.trailingAnchor, constant: -12),
+            pinImageView.widthAnchor.constraint(equalToConstant: 12),
+            pinImageView.heightAnchor.constraint(equalToConstant: 12),
 
             emojiLabel.topAnchor.constraint(equalTo: colorView.topAnchor, constant: 12),
             emojiLabel.leadingAnchor.constraint(equalTo: colorView.leadingAnchor, constant: 12),
@@ -114,6 +134,7 @@ final class TrackerCell: UICollectionViewCell {
         nameLabel.text = nil
         daysLabel.text = nil
         completeButton.setImage(nil, for: .normal)
+        pinImageView.isHidden = true
         delegate = nil
     }
 
@@ -122,6 +143,7 @@ final class TrackerCell: UICollectionViewCell {
         nameLabel.text = model.name
         colorView.backgroundColor = model.color
         daysLabel.text = model.daysText
+        pinImageView.isHidden = !model.isPinned
         let backgroundAlpha: CGFloat = model.isCompleted ? 0.3 : 1
         completeButton.backgroundColor = model.color.withAlphaComponent(backgroundAlpha)
         completeButton.isEnabled = model.isCompleteButtonEnabled
@@ -130,7 +152,9 @@ final class TrackerCell: UICollectionViewCell {
             UIImage(systemName: symbolName, withConfiguration: symbolConfiguration),
             for: .normal
         )
-        completeButton.accessibilityLabel = model.isCompleted ? "Снять отметку" : "Отметить выполненной"
+        completeButton.accessibilityLabel = model.isCompleted
+            ? L10n.text("cell.uncomplete")
+            : L10n.text("cell.complete")
     }
 
     @objc private func completeTapped() {

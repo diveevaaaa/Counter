@@ -11,6 +11,10 @@ final class PersistentContainer {
 
     private init() {
         container = NSPersistentContainer(name: "Tracker")
+        if let description = container.persistentStoreDescriptions.first {
+            description.shouldMigrateStoreAutomatically = true
+            description.shouldInferMappingModelAutomatically = true
+        }
         container.loadPersistentStores { _, error in
             if let error {
                 assertionFailure("Не удалось открыть хранилище Core Data: \(error)")

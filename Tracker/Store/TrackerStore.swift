@@ -12,6 +12,7 @@ final class TrackerCoreData: NSManagedObject {
     @NSManaged var emoji: String?
     @NSManaged var colorHex: String?
     @NSManaged var schedule: String?
+    @NSManaged var isPinned: Bool
     @NSManaged var category: TrackerCategoryCoreData?
     @NSManaged var records: NSSet?
 }
@@ -27,7 +28,8 @@ extension TrackerCoreData {
             name: name ?? "",
             color: UIColor(trackerHex: colorHex ?? "FD4C49"),
             emoji: emoji ?? "",
-            schedule: TrackerSchedule(storedValue: schedule ?? "")
+            schedule: TrackerSchedule(storedValue: schedule ?? ""),
+            isPinned: isPinned
         )
     }
 
@@ -37,6 +39,7 @@ extension TrackerCoreData {
         emoji = tracker.emoji
         colorHex = tracker.color.trackerHex
         schedule = tracker.schedule.storedValue
+        isPinned = tracker.isPinned
     }
 }
 
@@ -73,6 +76,25 @@ final class TrackerStore: NSObject, NSFetchedResultsControllerDelegate {
         let object = TrackerCoreData(context: context)
         object.fill(from: tracker)
         object.category = categoryStore.category(titled: title)
+        PersistentContainer.shared.saveIfNeeded()
+    }
+
+    func update(_ tracker: Tracker, categoryTitle: String) {
+        guard let object = tracker(id: tracker.id) else { return }
+        object.fill(from: tracker)
+        object.category = categoryStore.category(titled: categoryTitle)
+        PersistentContainer.shared.saveIfNeeded()
+    }
+
+    func delete(id: UUID) {
+        guard let object = tracker(id: id) else { return }
+        context.delete(object)
+        PersistentContainer.shared.saveIfNeeded()
+    }
+
+    func setPinned(_ isPinned: Bool, id: UUID) {
+        guard let object = tracker(id: id) else { return }
+        object.isPinned = isPinned
         PersistentContainer.shared.saveIfNeeded()
     }
 
