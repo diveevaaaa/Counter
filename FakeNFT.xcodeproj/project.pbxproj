@@ -1,0 +1,343 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B20000000000000000000001 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20000000000000000000001 /* AppDelegate.swift */; };
+		B20000000000000000000002 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20000000000000000000002 /* SceneDelegate.swift */; };
+		B20000000000000000000003 /* APIConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20000000000000000000003 /* APIConfig.swift */; };
+		B20000000000000000000004 /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20000000000000000000004 /* NetworkClient.swift */; };
+		B20000000000000000000005 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20000000000000000000005 /* ImageLoader.swift */; };
+		B20000000000000000000006 /* NFTCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20000000000000000000006 /* NFTCollection.swift */; };
+		B20000000000000000000007 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20000000000000000000007 /* MainTabBarController.swift */; };
+		B20000000000000000000008 /* CatalogViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20000000000000000000008 /* CatalogViewModel.swift */; };
+		B20000000000000000000009 /* CatalogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20000000000000000000009 /* CatalogViewController.swift */; };
+		B2000000000000000000000A /* CatalogCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2000000000000000000000A /* CatalogCell.swift */; };
+		B2000000000000000000000B /* SectionPlaceholderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2000000000000000000000B /* SectionPlaceholderViewController.swift */; };
+		B2000000000000000000000D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2000000000000000000000D /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		F20000000000000000000001 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F20000000000000000000002 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		F20000000000000000000003 /* APIConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConfig.swift; sourceTree = "<group>"; };
+		F20000000000000000000004 /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
+		F20000000000000000000005 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		F20000000000000000000006 /* NFTCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFTCollection.swift; sourceTree = "<group>"; };
+		F20000000000000000000007 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		F20000000000000000000008 /* CatalogViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogViewModel.swift; sourceTree = "<group>"; };
+		F20000000000000000000009 /* CatalogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogViewController.swift; sourceTree = "<group>"; };
+		F2000000000000000000000A /* CatalogCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogCell.swift; sourceTree = "<group>"; };
+		F2000000000000000000000B /* SectionPlaceholderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionPlaceholderViewController.swift; sourceTree = "<group>"; };
+		F2000000000000000000000C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F2000000000000000000000D /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F2000000000000000000000E /* FakeNFT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FakeNFT.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C20000000000000000000003 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		G20000000000000000000001 = {
+			isa = PBXGroup;
+			children = (
+				G20000000000000000000002 /* FakeNFT */,
+				G2000000000000000000000A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		G20000000000000000000002 /* FakeNFT */ = {
+			isa = PBXGroup;
+			children = (
+				F20000000000000000000001 /* AppDelegate.swift */,
+				F20000000000000000000002 /* SceneDelegate.swift */,
+				G20000000000000000000003 /* Network */,
+				G20000000000000000000004 /* Models */,
+				G20000000000000000000005 /* Presentation */,
+				G20000000000000000000009 /* Resources */,
+			);
+			path = FakeNFT;
+			sourceTree = "<group>";
+		};
+		G20000000000000000000003 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				F20000000000000000000003 /* APIConfig.swift */,
+				F20000000000000000000004 /* NetworkClient.swift */,
+				F20000000000000000000005 /* ImageLoader.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		G20000000000000000000004 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F20000000000000000000006 /* NFTCollection.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		G20000000000000000000005 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				G20000000000000000000006 /* Catalog */,
+				G20000000000000000000007 /* Common */,
+				G20000000000000000000008 /* TabBar */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		G20000000000000000000006 /* Catalog */ = {
+			isa = PBXGroup;
+			children = (
+				F20000000000000000000008 /* CatalogViewModel.swift */,
+				F20000000000000000000009 /* CatalogViewController.swift */,
+				F2000000000000000000000A /* CatalogCell.swift */,
+			);
+			path = Catalog;
+			sourceTree = "<group>";
+		};
+		G20000000000000000000007 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				F2000000000000000000000B /* SectionPlaceholderViewController.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		G20000000000000000000008 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				F20000000000000000000007 /* MainTabBarController.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		G20000000000000000000009 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F2000000000000000000000C /* Info.plist */,
+				F2000000000000000000000D /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		G2000000000000000000000A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F2000000000000000000000E /* FakeNFT.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5000000000000000000000A1 /* FakeNFT */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9000000000000000000000A2 /* Build configuration list for PBXNativeTarget "FakeNFT" */;
+			buildPhases = (
+				C20000000000000000000001 /* Sources */,
+				C20000000000000000000003 /* Frameworks */,
+				C20000000000000000000002 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FakeNFT;
+			productName = FakeNFT;
+			productReference = F2000000000000000000000E /* FakeNFT.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5000000000000000000000A0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					5000000000000000000000A1 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+				};
+			};
+			buildConfigurationList = 9000000000000000000000A1 /* Build configuration list for PBXProject "FakeNFT" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = ru;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+				ru,
+			);
+			mainGroup = G20000000000000000000001;
+			productRefGroup = G2000000000000000000000A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5000000000000000000000A1 /* FakeNFT */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C20000000000000000000002 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B2000000000000000000000D /* LaunchScreen.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C20000000000000000000001 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B20000000000000000000001 /* AppDelegate.swift in Sources */,
+				B20000000000000000000002 /* SceneDelegate.swift in Sources */,
+				B20000000000000000000003 /* APIConfig.swift in Sources */,
+				B20000000000000000000004 /* NetworkClient.swift in Sources */,
+				B20000000000000000000005 /* ImageLoader.swift in Sources */,
+				B20000000000000000000006 /* NFTCollection.swift in Sources */,
+				B20000000000000000000007 /* MainTabBarController.swift in Sources */,
+				B20000000000000000000008 /* CatalogViewModel.swift in Sources */,
+				B20000000000000000000009 /* CatalogViewController.swift in Sources */,
+				B2000000000000000000000A /* CatalogCell.swift in Sources */,
+				B2000000000000000000000B /* SectionPlaceholderViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		8000000000000000000000A1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_TESTABILITY = YES;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		8000000000000000000000A2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8000000000000000000000A3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FakeNFT/Resources/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = NO;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ru.practicum.FakeNFT;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		8000000000000000000000A4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FakeNFT/Resources/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = NO;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ru.practicum.FakeNFT;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9000000000000000000000A1 /* Build configuration list for PBXProject "FakeNFT" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8000000000000000000000A1 /* Debug */,
+				8000000000000000000000A2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9000000000000000000000A2 /* Build configuration list for PBXNativeTarget "FakeNFT" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8000000000000000000000A3 /* Debug */,
+				8000000000000000000000A4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5000000000000000000000A0 /* Project object */;
+}
